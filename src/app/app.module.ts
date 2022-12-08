@@ -9,6 +9,7 @@ import { SignUpComponent } from './view/sign-up/sign-up.component';
 import { NotFoundComponent } from './view/not-found/not-found.component';
 import { ServerErrorComponent } from './view/server-error/server-error.component';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
+import { DashboardModule } from './view/dashboard.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DashboardComponent } from './view/dashboard/dashboard.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DashboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
