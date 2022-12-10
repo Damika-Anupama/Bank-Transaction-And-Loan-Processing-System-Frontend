@@ -1,11 +1,18 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Injectable, NgModule } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { ResolveFn, RouterModule, RouterStateSnapshot, Routes, TitleStrategy } from '@angular/router';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
+import { FixedDepositComponent } from './view/fixed-deposit/fixed-deposit.component';
+import { HomeComponent } from './view/home/home.component';
+import { LoanComponent } from './view/loan/loan.component';
 import { NotFoundComponent } from './view/not-found/not-found.component';
 import { ServerErrorComponent } from './view/server-error/server-error.component';
 import { SignInComponent } from './view/sign-in/sign-in.component';
 import { SignUpComponent } from './view/sign-up/sign-up.component';
+import { TransactionComponent } from './view/transaction/transaction.component';
 import { WelcomeComponent } from './view/welcome/welcome.component';
+
+const resolvedChildATitle: ResolveFn<string> = () => Promise.resolve('Home');
 
 const routes: Routes = [
   {
@@ -34,8 +41,37 @@ const routes: Routes = [
     path:'server-error'
   },
   {
+    path:'dashboard',
+    title: "Dashboard",
     component:DashboardComponent,
-    path:'dashboard'
+    children: [
+      {
+        path:'',
+        pathMatch:'prefix',
+        redirectTo: 'home'
+      },
+      {
+        path: 'home', 
+        title:resolvedChildATitle,
+        component: HomeComponent, 
+      },
+      {
+        path: 'fixed-deposit',
+        title:"Fixed Deposit",
+        component: FixedDepositComponent, 
+      },
+      {
+        path: 'loan',
+        title: "Loan",
+        component: LoanComponent, 
+      },
+      {
+        path: 'transaction',
+        title: "Transaction",
+        component: TransactionComponent, 
+      },
+      
+    ],
   },
   {
     component:NotFoundComponent,
@@ -43,8 +79,26 @@ const routes: Routes = [
   }
 ];
 
+@Injectable({providedIn: 'root'})
+export class TemplatePageTitleStrategy extends TitleStrategy {
+  constructor(private readonly title: Title) {
+    super();
+  }
+
+  override updateTitle(routerState: RouterStateSnapshot) {
+    const title = this.buildTitle(routerState);
+    if (title !== undefined) {
+      this.title.setTitle(`DBS Project | ${title}`);
+    }
+  }
+}
+
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [
+    {provide: TitleStrategy, useClass: TemplatePageTitleStrategy},
+  ]
 })
 export class AppRoutingModule { }
