@@ -14,6 +14,7 @@ import { HomeComponent } from './view/home/home.component';
 import { LoanComponent } from './view/loan/loan.component';
 import { TransactionComponent } from './view/transaction/transaction.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
