@@ -9,7 +9,11 @@ import { SignUpComponent } from './view/sign-up/sign-up.component';
 import { NotFoundComponent } from './view/not-found/not-found.component';
 import { ServerErrorComponent } from './view/server-error/server-error.component';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
-import { DashboardModule } from './view/dashboard/dashboard.module';
+import { FixedDepositComponent } from './view/fixed-deposit/fixed-deposit.component';
+import { HomeComponent } from './view/home/home.component';
+import { LoanComponent } from './view/loan/loan.component';
+import { TransactionComponent } from './view/transaction/transaction.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -19,12 +23,16 @@ import { DashboardModule } from './view/dashboard/dashboard.module';
     SignUpComponent,
     NotFoundComponent,
     ServerErrorComponent,
-    DashboardComponent
+    DashboardComponent,
+    FixedDepositComponent,
+    HomeComponent,
+    LoanComponent,
+    TransactionComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DashboardModule
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
