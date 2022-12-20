@@ -1,6 +1,7 @@
 import { Injectable, NgModule } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ResolveFn, RouterModule, RouterStateSnapshot, Routes, TitleStrategy } from '@angular/router';
+import { DashboardGuard } from './guard/dashboard.guard';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
 import { FixedDepositComponent } from './view/fixed-deposit/fixed-deposit.component';
 import { HomeComponent } from './view/home/home.component';
@@ -72,6 +73,8 @@ const routes: Routes = [
       },
       
     ],
+    // data: { preload: true },
+    // canActivate: [DashboardGuard]
   },
   {
     component:NotFoundComponent,

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
+import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-transaction',
@@ -7,40 +7,9 @@ import Swal from 'sweetalert2';
   styleUrls: ['./transaction.component.scss']
 })
 export class TransactionComponent{
-  name = 'Angular';
-   
-  simpleAlert(){
-    Swal.fire('Hello world!');
-  }
-  
-  alertWithSuccess(){
-    Swal.fire('Thank you...', 'You submitted succesfully!', 'success').then(function(){
-      
-    })
-  }
-  
-  confirmBox(){
-    Swal.fire({
-      title: 'Are you sure want to remove?',
-      text: 'You will not be able to recover this file!',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'No, keep it'
-    }).then((result) => {
-      if (result.value) {
-        Swal.fire(
-          'Deleted!',
-          'Your imaginary file has been deleted.',
-          'success'
-        )
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire(
-          'Cancelled',
-          'Your imaginary file is safe :)',
-          'error'
-        )
-      }
-    })
+  constructor(private toastr: ToastrService) {}
+
+  showToast() {
+    this.toastr.success('Hello, world!', 'Toast Title');
   }
 }
