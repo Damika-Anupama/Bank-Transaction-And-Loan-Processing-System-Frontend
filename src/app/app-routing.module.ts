@@ -73,8 +73,8 @@ const routes: Routes = [
       },
       
     ],
-    // data: { preload: true },
-    // canActivate: [DashboardGuard]
+    data: { preload: true },
+    canActivate: [DashboardGuard]
   },
   {
     component:NotFoundComponent,

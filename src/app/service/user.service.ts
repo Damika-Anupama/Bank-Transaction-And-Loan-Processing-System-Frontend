@@ -62,11 +62,12 @@ export class UserService {
     return this.http.get<any>(environment.baseUrl + `/api/v1/users/picture/` + query);
   }
 
-  authenticate(uname: string, pwd: string): Observable<any> {
-    const body: FormData = new FormData();
-    body.append('username',uname)
-    body.append('password',pwd)
-    return this.http.post(environment.baseUrl + `/api/v1/authenticate`, body);
+  authenticate(email: string, password: string): Observable<any> {
+    const body = {
+      email,
+      password
+    };
+    return this.http.post<any>(environment.baseUrl + `/api/v1/user/auth`, body);
   }
 
   updateUser(userId: string, profilePic: string, shortDes: string, username: string, email: string, phoneNumber: string): Observable<any> {
