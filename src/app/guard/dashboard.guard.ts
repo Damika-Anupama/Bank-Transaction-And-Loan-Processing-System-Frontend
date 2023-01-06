@@ -3,17 +3,21 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTr
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DashboardGuard implements CanActivate {
-  constructor(private router: Router) {
-  }
+  constructor(private router: Router) {}
+  ngOnInit(): void {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    const token = sessionStorage.getItem('token');
-    return (token !== null) ? true : this.router.createUrlTree(['/welcome']);
+    state: RouterStateSnapshot
+  ):
+    | Observable<boolean | UrlTree>
+    | Promise<boolean | UrlTree>
+    | boolean
+    | UrlTree {
+    const token = localStorage.getItem('token');
+    return token !== null ? true : this.router.createUrlTree(['/welcome']);
   }
-
 }

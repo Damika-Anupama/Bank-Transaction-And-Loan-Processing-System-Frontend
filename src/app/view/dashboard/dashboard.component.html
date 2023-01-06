@@ -103,7 +103,7 @@
       </li>
       <!-- Exit -->
       <li class="nav-item dropdown">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="#" (click)="exit()">
           <i class="fa fa-door-open" aria-hidden="true"></i>
         </a>
       </li>
@@ -125,7 +125,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item nav-item-edit">
-            <a routerLink="./home" class="nav-link">
+            <a routerLink="./home" class="nav-link" routerLinkActive="active">
               <i class="nav-icon fa fa-home" aria-hidden="true"></i>
               <p>
                 Home
@@ -133,7 +133,7 @@
             </a>
           </li>
           <li class="nav-item nav-item-edit">
-            <a routerLink="./transaction" class="nav-link">
+            <a routerLink="./transaction" class="nav-link" routerLinkActive="active">
               <i class="nav-icon fa fa-money-bill" aria-hidden="true"></i>
               <p>
                 Transaction
@@ -141,7 +141,7 @@
             </a>
           </li>
           <li class="nav-item nav-item-edit">
-            <a routerLink="./fixed-deposit" class="nav-link">
+            <a routerLink="./fixed-deposit" class="nav-link" routerLinkActive="active">
               <i class="nav-icon fas fa-handshake"  aria-hidden="true"></i>
               <p>
                 Fixed Deposit
@@ -149,7 +149,7 @@
             </a>
           </li>
           <li class="nav-item nav-item-edit">
-            <a routerLink="./loan" class="nav-link">
+            <a routerLink="./loan" class="nav-link" routerLinkActive="active">
               <i class="nav-icon fa fa-dollar-sign"  aria-hidden="true"></i>
               <p>
                 Loan

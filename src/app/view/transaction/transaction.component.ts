@@ -7,9 +7,8 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./transaction.component.scss']
 })
 export class TransactionComponent{
-  constructor(private toastr: ToastrService) {}
+  constructor() {}
 
   showToast() {
-    this.toastr.success('Hello, world!', 'Toast Title');
   }
 }

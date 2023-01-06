@@ -10,17 +10,20 @@ export class TokenInterceptorService implements HttpInterceptor{
   constructor() { }
   
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    let token = sessionStorage.getItem('token');
+    let token = localStorage.getItem('token');
     let tokenizedReq = null;
-    if(token !== null){
+    // if token is not null then tokenize the request as a bearer token
+    if (token) {
       tokenizedReq = req.clone({
         setHeaders: {
           Authorization: `Bearer ${token}`
         }
       });
-    }else {
-      tokenizedReq = req;
+    } else {
+      tokenizedReq = req.clone();
     }
+    
+    console.log(tokenizedReq);
     return next.handle(tokenizedReq);
   }
 }

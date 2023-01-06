@@ -62,6 +62,10 @@ export class UserService {
     return this.http.get<any>(environment.baseUrl + `/api/v1/users/picture/` + query);
   }
 
+  getDashboardDetails(): Observable<any> {
+    return this.http.get<any>(environment.baseUrl + `/api/v1/user/dashboard/${localStorage.getItem('email')}`);
+  }
+
   authenticate(email: string, password: string): Observable<any> {
     const body = {
       email,

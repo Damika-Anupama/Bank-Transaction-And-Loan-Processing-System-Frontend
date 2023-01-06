@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
 
@@ -14,12 +14,14 @@ export class SignInComponent {
   authenticate(): void {
     this.userService.authenticate(this.email, this.password).subscribe(
       (user) => {
-        console.log(user.body);
-        this.router.navigate(['/dashboard']);
+        localStorage.setItem('token', user);
+        localStorage.setItem('email', this.email);
+        this.router.navigate(['/dashboard/home']);
       },
       (err) => {
         console.log(err);
       }
     );
   }
+
 }
