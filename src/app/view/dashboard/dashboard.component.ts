@@ -8,6 +8,9 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent {
   constructor(private router: Router) {}
+  isSmallScreen(): boolean {
+    return window.innerWidth < 768;
+  }
   exit() {
     // empty local storage and navigate to the welcome page
     localStorage.clear();

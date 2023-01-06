@@ -7,6 +7,20 @@
 
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <ul class="navbar-nav additional-button-bar" ng-hide="isSmallScreen()">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="./home" role="button"><i class="nav-icon fa fa-home" aria-hidden="true"></i></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="./transaction" role="button"><i class="nav-icon fa fa-money-bill" aria-hidden="true"></i></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="./fixed-deposit" role="button"><i class="nav-icon fas fa-handshake"  aria-hidden="true"></i></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="./loan" role="button"><i class="nav-icon fa fa-dollar-sign"  aria-hidden="true"></i></a>
+      </li>
+    </ul>
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Navbar Search -->
