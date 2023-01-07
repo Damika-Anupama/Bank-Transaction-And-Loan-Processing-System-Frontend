@@ -1,3 +1,16 @@
 .header-block{
     margin: 0 20px;
 }
+
+.cursor-pointer {
+    cursor: pointer;
+  }
+
+  .selected {
+    background-color: #eee;
+  }
+  
+  .required {
+    color: red;
+  }
+  

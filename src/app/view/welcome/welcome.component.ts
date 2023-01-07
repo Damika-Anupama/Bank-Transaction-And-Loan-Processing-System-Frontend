@@ -9,8 +9,8 @@ import { Router, RouterLinkActive } from '@angular/router';
 
 export class WelcomeComponent {
 constructor(private router:Router){}
-gotoSignup() {
-  this.router.navigateByUrl('sign-up');
+gotoSignin() {
+  this.router.navigateByUrl('sign-in');
 }
 
 }

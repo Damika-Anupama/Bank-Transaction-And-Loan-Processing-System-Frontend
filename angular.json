@@ -49,6 +49,7 @@
               "node_modules/admin-lte/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css",
               "node_modules/admin-lte/plugins/bs-stepper/css/bs-stepper.min.css",
               "node_modules/admin-lte/plugins/dropzone/min/dropzone.min.css",
+              "node_modules/admin-lte/plugins/toastr/toastr.min.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
