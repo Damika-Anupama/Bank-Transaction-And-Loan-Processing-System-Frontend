@@ -12,6 +12,15 @@ import { SignInComponent } from './view/sign-in/sign-in.component';
 import { SignUpComponent } from './view/sign-up/sign-up.component';
 import { TransactionComponent } from './view/customer-dashboard/transaction/transaction.component';
 import { WelcomeComponent } from './view/welcome/welcome.component';
+import { EmployeeDashboardComponent } from './view/employee-dashboard/employee.dashboard/employee.dashboard.component';
+import { EmployeeHomeComponent } from './view/employee-dashboard/employee.home/employee.home.component';
+import { EmployeeRegisterCustomerComponent } from './view/employee-dashboard/employee.register.customer/employee.register.customer.component';
+import { EmployeeCreateLoanComponent } from './view/employee-dashboard/employee.create.loan/employee.create.loan.component';
+import { EmployeeWithdrawalComponent } from './view/employee-dashboard/employee.withdrawal/employee.withdrawal.component';
+import { ManagerDashboardComponent } from './view/manager-dashboard/manager.dashboard/manager.dashboard.component';
+import { ManagerHomeComponent } from './view/manager-dashboard/manager.home/manager.home.component';
+import { ManagerAddEmployeeComponent } from './view/manager-dashboard/manager.add.employee/manager.add.employee.component';
+import { ManagerLoanApprovalComponent } from './view/manager-dashboard/manager.loan.approval/manager.loan.approval.component';
 
 const resolvedChildATitle: ResolveFn<string> = () => Promise.resolve('Home');
 
@@ -72,6 +81,70 @@ const routes: Routes = [
         component: TransactionComponent, 
       },
       
+    ],
+    data: { preload: true },
+    canActivate: [DashboardGuard]
+  },
+  {
+    path:'employee-dashboard',
+    title: "Employee Dashboard",
+    component:EmployeeDashboardComponent,
+    children: [
+      {
+        path:'',
+        pathMatch:'prefix',
+        redirectTo: 'employee-home'
+      },
+      {
+        path: 'employee-home', 
+        title:resolvedChildATitle,
+        component: EmployeeHomeComponent, 
+      },
+      {
+        path: 'employee-create-loan',
+        title:"Manual Loan Creation",
+        component: EmployeeCreateLoanComponent, 
+      },
+      {
+        path: 'employee-register-customer',
+        title: "Register Customer",
+        component: EmployeeRegisterCustomerComponent, 
+      },
+      {
+        path: 'employee-withdraw',
+        title: "Withdraw",
+        component: EmployeeWithdrawalComponent, 
+      },
+      
+    ],
+    data: { preload: true },
+    canActivate: [DashboardGuard]
+  },
+   {
+    path:'manager-dashboard',
+    title: "Manager Dashboard",
+    component:ManagerDashboardComponent,
+    children: [
+      {
+        path:'',
+        pathMatch:'prefix',
+        redirectTo: 'manager-home'
+      },
+      {
+        path: 'manager-home', 
+        title:resolvedChildATitle,
+        component: ManagerHomeComponent, 
+      },
+      {
+        path: 'manager-add-employee',
+        title:"Add Employee",
+        component: ManagerAddEmployeeComponent, 
+      },
+      {
+        path: 'manager-loan-approval',
+        title: "Loan Approval",
+        component: ManagerLoanApprovalComponent, 
+      }      
     ],
     data: { preload: true },
     canActivate: [DashboardGuard]
