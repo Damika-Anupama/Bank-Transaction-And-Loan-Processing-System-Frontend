@@ -21,6 +21,9 @@ import { ManagerDashboardComponent } from './view/manager-dashboard/manager.dash
 import { ManagerHomeComponent } from './view/manager-dashboard/manager.home/manager.home.component';
 import { ManagerAddEmployeeComponent } from './view/manager-dashboard/manager.add.employee/manager.add.employee.component';
 import { ManagerLoanApprovalComponent } from './view/manager-dashboard/manager.loan.approval/manager.loan.approval.component';
+import { SettingsComponent } from './view/customer-dashboard/settings/settings.component';
+import { EmployeeSettingsComponent } from './view/employee-dashboard/employee.settings/employee.settings.component';
+import { ManagerSettingsComponent } from './view/manager-dashboard/manager.settings/manager.settings.component';
 
 const resolvedChildATitle: ResolveFn<string> = () => Promise.resolve('Home');
 
@@ -80,7 +83,11 @@ const routes: Routes = [
         title: "Transaction",
         component: TransactionComponent, 
       },
-      
+      {
+        path: 'settings',
+        title: "Settings",
+        component: SettingsComponent, 
+      }
     ],
     data: { preload: true },
     canActivate: [DashboardGuard]
@@ -115,7 +122,11 @@ const routes: Routes = [
         title: "Withdraw",
         component: EmployeeWithdrawalComponent, 
       },
-      
+      {
+        path: 'employee-settings',
+        title: "Settings",
+        component: EmployeeSettingsComponent, 
+      }      
     ],
     data: { preload: true },
     canActivate: [DashboardGuard]
@@ -144,6 +155,11 @@ const routes: Routes = [
         path: 'manager-loan-approval',
         title: "Loan Approval",
         component: ManagerLoanApprovalComponent, 
+      },
+      {
+        path: 'manager-settings',
+        title: "Settings",
+        component: ManagerSettingsComponent, 
       }      
     ],
     data: { preload: true },

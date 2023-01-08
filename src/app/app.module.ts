@@ -28,6 +28,9 @@ import { EmployeeHomeComponent } from './view/employee-dashboard/employee.home/e
 import { EmployeeCreateLoanComponent } from './view/employee-dashboard/employee.create.loan/employee.create.loan.component';
 import { EmployeeRegisterCustomerComponent } from './view/employee-dashboard/employee.register.customer/employee.register.customer.component';
 import { EmployeeWithdrawalComponent } from './view/employee-dashboard/employee.withdrawal/employee.withdrawal.component';
+import { SettingsComponent } from './view/customer-dashboard/settings/settings.component';
+import { ManagerSettingsComponent } from './view/manager-dashboard/manager.settings/manager.settings.component';
+import { EmployeeSettingsComponent } from './view/employee-dashboard/employee.settings/employee.settings.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,10 @@ import { EmployeeWithdrawalComponent } from './view/employee-dashboard/employee.
     EmployeeHomeComponent,
     EmployeeCreateLoanComponent,
     EmployeeRegisterCustomerComponent,
-    EmployeeWithdrawalComponent
+    EmployeeWithdrawalComponent,
+    SettingsComponent,
+    ManagerSettingsComponent,
+    EmployeeSettingsComponent
   ],
   imports: [
     BrowserModule,
