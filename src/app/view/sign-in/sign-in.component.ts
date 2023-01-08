@@ -14,9 +14,24 @@ export class SignInComponent {
   authenticate(): void {
     this.userService.authenticate(this.email, this.password).subscribe(
       (user) => {
-        localStorage.setItem('token', user);
+        console.log(user);
+        const token = user.token;
+        const type = user.type;
+        localStorage.setItem('token', token);
         localStorage.setItem('email', this.email);
-        this.router.navigate(['/dashboard/home']);
+        switch
+        (type) {
+          case 'CUSTOMER':
+            this.router.navigate(['/dashboard/home']);
+            break;
+          case 'EMPLOYEE':
+            this.router.navigate(['/employee-dashboard/employee-home']);
+            break;
+          case 'MANAGER':
+            this.router.navigate(['/manager-dashboard/manager-home']);
+            break;
+        }
+
       },
       (err) => {
         console.log(err);
