@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/service/user.service';
+import { UserService } from 'src/app/service/customer/user.service';
 
 @Component({
   selector: 'app-sign-in',

@@ -1,0 +1,138 @@
+<div class="row" *ngIf="!fds">
+  <div class="col-md-8">
+    <div class="card card-default">
+      <div class="card-body">
+        <div class="alert alert-danger alert-dismissible">
+          <button
+            type="button"
+            class="close"
+            data-dismiss="alert"
+            aria-hidden="true"
+          >
+            &times;
+          </button>
+          <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+          You can't apply for an online loan because you don't have any fixed deposit. If you want to apply for a loan, you need to have a fixed deposit.
+        </div>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+</div>
+  <div class="loan-content" *ngIf="fds">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Apply for a Loan</h3>
+          </div>
+          <!-- disable the form if fds value is null -->
+
+          <form>
+            <div class="card-body">
+              <div class="form-group">
+                <label>Choose a fixed deposit</label>
+                <select
+                  class="form-control select2"
+                  style="width: 100%"
+                  *ngIf="fds"
+                >
+                  <option *ngFor="let account of fds">
+                    fd_id: {{ account.fd_id }}, account_type:
+                    {{ account.account_type }}, available balance:
+                    {{ account.amount }}
+                  </option>
+                </select>
+                <select
+                  class="form-control select2"
+                  disabled="disabled"
+                  style="width: 100%"
+                  *ngIf="!fds"
+                ></select>
+              </div>
+              <div class="form-group">
+                <div class="form-group">
+                  <label>Choose a fixed deposit option</label>
+                  <select
+                    class="form-control select2"
+                    style="width: 100%"
+                    *ngIf="fds"
+                  >
+                    <option *ngFor="let account of fds">
+                      account_id: {{ account.account_id }}, account_type:
+                      {{ account.account_type }}, available balance:
+                      {{ account.amount }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Beneficiary Remarks</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  placeholder="Enter Beneficiary Remarks"
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">To Account Number</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  placeholder="Enter To Account Number"
+                />
+              </div>
+            </div>
+            <!-- /.card-body -->
+
+            <div class="card-footer">
+              <button type="submit" class="btn btn-warning swalDefaultSuccess">
+                Proceed
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Your previous loans</h3>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <table id="example1" class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Loan ID</th>
+                  <th>Amount</th>
+                  <th>Starting Date</th>
+                  <th>Duration</th>
+                  <th>Interest</th>
+                  <th>Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let loan of loans; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{loan.loan_basic_detail_id}}</td>
+                  <td>{{loan.amount}}</td>
+                  <td>{{loan.starting_date}}</td>
+                  <td>{{loan.duration_days}}</td>
+                  <td>{{loan.interest}}%</td>
+                  <td>{{loan.type}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+      </div>
+    </div>
+  </div>
+

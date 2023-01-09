@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Chart, registerables } from 'chart.js';
 import { FilterPipe } from 'src/app/pipes/filter.pipe';
-import { UserService } from 'src/app/service/user.service';
+import { UserService } from 'src/app/service/customer/user.service';
 Chart.register(...registerables);
 
 @Component({

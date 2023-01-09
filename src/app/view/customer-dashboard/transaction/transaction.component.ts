@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { TransactionService } from 'src/app/service/transaction.service';
+import { TransactionService } from 'src/app/service/customer/transaction.service';
 
 @Component({
   selector: 'app-transaction',
