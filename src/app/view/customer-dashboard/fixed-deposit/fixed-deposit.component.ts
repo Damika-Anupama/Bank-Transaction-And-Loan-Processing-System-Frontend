@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { fd } from 'src/app/model/FD';
+import { fdPackage } from 'src/app/model/FDpackage';
+import { FDSelectedSavingAccount } from 'src/app/model/FDSelectedSavingAccount';
 import { FixedDepositService } from 'src/app/service/customer/fixed-deposit.service';
 import { LoanService } from 'src/app/service/customer/loan.service';
 import Swal from 'sweetalert2';
@@ -11,13 +14,16 @@ import Swal from 'sweetalert2';
 export class FixedDepositComponent implements OnInit {
   fds = null;
   savingAccounts = null;
-  selectedSavingAccount: { account_id: number; account_type: string; amount: string; } | undefined;
-  selectedPackage: { index: number; period: string; interest: string; } | undefined;
-  packageArray = [
-    [1, '6 months', '13%'],
-    [2, '1 year', '14%'],
-    [3, '3 years', '15%'],
+  selectedSavingAccount: FDSelectedSavingAccount | undefined;
+  selectedPackage: number | undefined;
+  packageArray: fdPackage[] = [
+    { index: 1, period: '6 months', interest: '13%' },
+    { index: 2, period: '1 year', interest: '14%' },
+    { index: 3, period: '3 years', interest: '15%' },
   ];
+  savingAccountId: any;
+  duration: any;
+  rpa: any;
   fdAmount: any;
 
   constructor(
@@ -35,6 +41,19 @@ export class FixedDepositComponent implements OnInit {
       console.log(this.fds);
     });
   }
+  onAccountSelected() {
+    this.savingAccountId = this.selectedSavingAccount?.saving_account_id;
+  }
+  onPackageSelected() {
+    for (const element of this.packageArray) {
+        if (element.index === Number(this.selectedPackage)) {
+            this.duration = element.period;
+            this.rpa = element.interest;
+        }
+    }
+}
+
+
 
   convertDuration(duration: any) {
     return duration.replace(/_/g, ' ').toLowerCase();
@@ -42,35 +61,34 @@ export class FixedDepositComponent implements OnInit {
   checkForm() {
     if (this.selectedSavingAccount && this.selectedPackage && this.fdAmount) {
       if (this.fdAmount.match(/^[0-9]+$/)) {
-        let duration: string;
-        let interest: string;
 
-        duration = this.selectedPackage.period;
-        interest = this.selectedPackage.interest;
-        switch (duration) {
+        switch (this.duration) {
           case '6 months':
-            duration = "6_MONTH";
+            this.duration = "6_MONTH";
             break;
           case '1 year':
-            duration = "1_YEAR";
+            this.duration = "1_YEAR";
             break;
           case '3 years':
-            duration = "3_YEARS";
+            this.duration = "3_YEARS";
             break;
         }
-        switch (interest) {
+        switch (this.rpa) {
           case '13%':
-            interest = "13";
+            this.rpa = "13";
             break;
           case '14%':
-            interest = "14";
+            this.rpa = "14";
             break;
           case '15%':
-            interest = "15";
+            this.rpa = "15";
             break;
         }
-        console.log(this.selectedSavingAccount.account_id, duration, interest);
-        this.fdService.createFD(this.selectedSavingAccount.account_id, duration, interest, this.fdAmount).subscribe((data) => {
+        console.log(
+          this.savingAccountId,this.duration,this.rpa,
+          this.fdAmount
+        );
+        this.fdService.createFD(this.savingAccountId,this.duration,this.rpa,Number(this.fdAmount)).subscribe((data) => {
           console.log(data);
           Swal.fire({
             title: 'Success',

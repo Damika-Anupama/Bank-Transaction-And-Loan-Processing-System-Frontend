@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   selectedAccount = null;
   searchTerm = ''
   constructor(private router: Router, private userService: UserService) {}
+  
   ngOnInit() {
     this.userService.getDashboardDetails().subscribe(
       (user) => {

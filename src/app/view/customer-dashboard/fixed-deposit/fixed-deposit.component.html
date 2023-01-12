@@ -36,11 +36,11 @@
               <select
                 class="form-control select2"
                 style="width: 100%"
-                [(ngModel)]="selectedSavingAccount"
+                [(ngModel)]="selectedSavingAccount" (change)="onAccountSelected()"
                 name="selectedSavingAccount"
               >
-                <option *ngFor="let account of savingAccounts">
-                  account_id: {{ account.account_id }}, account_type:
+                <option *ngFor="let account of savingAccounts" [ngValue]="account">
+                  saving_account_id: {{ account.saving_account_id }}, account_type:
                   {{ account.account_type }}, available balance:
                   {{ account.amount }}
                 </option>
@@ -52,11 +52,11 @@
                 <select
                   class="form-control select2"
                   style="width: 100%"
-                  [(ngModel)]="selectedPackage"
+                  [(ngModel)]="selectedPackage" (ngModelChange)="onPackageSelected()"
                   name="selectedPackage"
                 >
-                  <option *ngFor="let package of packageArray">
-                    package id: {{ package[0] }}, duration: {{ package[1] }}, interest rate: {{ package[2] }}
+                  <option *ngFor="let package of packageArray" [value]="package.index">
+                    package id: {{ package.index }}, duration: {{ package.period}}, interest rate: {{ package.interest }}
                   </option>
                 </select>
               </div>  
