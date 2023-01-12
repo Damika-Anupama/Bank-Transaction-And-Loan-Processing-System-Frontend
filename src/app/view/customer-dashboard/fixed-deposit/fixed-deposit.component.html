@@ -1,4 +1,4 @@
-<div class="row" *ngIf="!savingAccounts">
+<div class="row" *ngIf="!savingAccounts || savingAccounts.length === 0">
   <div class="col-md-8">
     <div class="card card-default">
       <div class="card-body">
@@ -20,7 +20,7 @@
     <!-- /.card -->
   </div>
 </div>
-<div class="fd-main-content" *ngIf="savingAccounts">
+<div class="fd-main-content" *ngIf="savingAccounts.length !== 0">
   <div class="row">
     <div class="col-md-8">
         <div class="card card-primary">
@@ -80,7 +80,9 @@
       </div>
     </div>
   </div>
-  <div class="row">
+
+</div>
+<div class="row">
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
@@ -117,4 +119,3 @@
     </div>
   </div>
   </div>
-</div>

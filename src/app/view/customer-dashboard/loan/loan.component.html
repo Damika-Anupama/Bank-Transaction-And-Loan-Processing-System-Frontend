@@ -1,4 +1,4 @@
-<div class="row" *ngIf="!fds">
+<div class="row" *ngIf="!fds || fds.length === 0">
   <div class="col-md-8">
     <div class="card card-default">
       <div class="card-body">
@@ -20,7 +20,7 @@
     <!-- /.card -->
   </div>
 </div>
-  <div class="loan-content" *ngIf="fds">
+  <div class="loan-content" *ngIf="fds.length != 0">
     <div class="row">
       <div class="col-md-8">
         <div class="card card-primary">
@@ -80,23 +80,19 @@
               <div class="form-group clearfix">
                 <label>Select Loan Type</label><br>
                 <div class="icheck-primary d-inline gender-selection">
-                  <input type="radio" id="radioPrimary1" name="r1" checked>
-                  <label for="radioPrimary1">
-                    Personal
-                  </label>
+                  <input type="radio" [(ngModel)]="selectedLoanType" name="loanType" value="Personal" id="radioPrimary1" checked>
+<label for="radioPrimary1">Personal</label>
                 </div>
                 <div class="icheck-danger d-inline gender-selection">
-                  <input type="radio" id="radioPrimary2" name="r1">
-                  <label for="radioPrimary2">
-                    Business
-                  </label>
+                  <input type="radio" [(ngModel)]="selectedLoanType" name="loanType" value="Business" id="radioPrimary2">
+<label for="radioPrimary2">Business</label>
                 </div>
               </div>
             </div>
             <!-- /.card-body -->
 
             <div class="card-footer">
-              <button type="submit" class="btn btn-warning swalDefaultSuccess">
+              <button type="submit" class="btn btn-warning swalDefaultSuccess" (click)="proceed()">
                 Proceed
               </button>
             </div>
@@ -104,42 +100,43 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">Your previous loans</h3>
-          </div>
-          <!-- /.card-header -->
-          <div class="card-body">
-            <table id="example1" class="table table-bordered table-striped">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Loan ID</th>
-                  <th>Amount</th>
-                  <th>Starting Date</th>
-                  <th>Duration</th>
-                  <th>Interest</th>
-                  <th>Type</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let loan of loans; let i = index">
-                  <td>{{ i + 1 }}</td>
-                  <td>{{loan.loan_basic_detail_id}}</td>
-                  <td>{{loan.amount}}</td>
-                  <td>{{loan.starting_date}}</td>
-                  <td>{{loan.duration_days}}</td>
-                  <td>{{loan.interest}}%</td>
-                  <td>{{loan.type}}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <!-- /.card-body -->
+    
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Your previous loans</h3>
         </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Loan ID</th>
+                <th>Amount</th>
+                <th>Starting Date</th>
+                <th>Duration</th>
+                <th>Interest</th>
+                <th>Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let loan of loans; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{loan.loan_basic_detail_id}}</td>
+                <td>{{loan.amount}}</td>
+                <td>{{loan.starting_date}}</td>
+                <td>{{loan.duration_days}}</td>
+                <td>{{loan.interest}}%</td>
+                <td>{{loan.loan_type}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
       </div>
     </div>
   </div>
-

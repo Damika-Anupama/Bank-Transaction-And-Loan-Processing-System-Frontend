@@ -12,8 +12,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./fixed-deposit.component.scss'],
 })
 export class FixedDepositComponent implements OnInit {
-  fds = null;
-  savingAccounts = null;
+  fds: any;
+  savingAccounts: any;
   selectedSavingAccount: FDSelectedSavingAccount | undefined;
   selectedPackage: number | undefined;
   packageArray: fdPackage[] = [
