@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { fd } from 'src/app/model/FD';
 import { LoanService } from 'src/app/service/customer/loan.service';
 
 @Component({
@@ -9,6 +10,8 @@ import { LoanService } from 'src/app/service/customer/loan.service';
 export class LoanComponent implements OnInit {
   fds: any;
   loans: any;
+  selectedFD!: fd;
+  maximumLoanAmount: number;
   constructor(private loanService:LoanService) {}
   ngOnInit(): void {
     this.loanService.getFDs().subscribe((data) => {
@@ -21,5 +24,9 @@ export class LoanComponent implements OnInit {
       this.loans = data.data;
     }
     );
+    this.maximumLoanAmount = this.selectedFD.amount * 0.6;
+  }
+  convertDuration(duration: any) {
+    return duration.replace(/_/g, ' ').toLowerCase();
   }
 }
