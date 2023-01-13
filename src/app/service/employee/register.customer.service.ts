@@ -10,4 +10,9 @@ export class RegisterCustomerService {
 
   constructor(private http: HttpClient) {
   }
+  registerCustomer(body: any): Observable<any> {
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post(`${environment.baseUrl}/api/user`, body, {headers});
+  }
 }

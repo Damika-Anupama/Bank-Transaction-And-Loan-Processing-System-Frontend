@@ -1,46 +1,92 @@
-<h1>Manual Loan Creation</h1>
-<p id="p1">Please fill out the form below to apply for a loan.</p>
-<form>
-  <div class="private-details">
-    <h2>Contact Information</h2>
-  <label for="name">Name:</label><br>
-  <input type="text" id="name" name="name"><br>
-  <label for="email">Email:</label><br>
-  <input type="email" id="email" name="email"><br>
-   <label for="email">Contact Number:</label><br>
-  <input type="email" id="email" name="email"><br>
-    
-  <label for="email">Address:</label><br>
-  <input type="email" id="email" name="email"><br>
-   <input type="email" id="email" name="email"><br>
-    <input type="email" id="email" name="email"><br>
+<div class="loan-content">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">Apply for a Loan</h3>
+        </div>
+        <!-- disable the form if fds value is null -->
+
+        <form>
+          <div class="card-body">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Customer ID</label>
+              <input
+                type="number"
+                class="form-control"
+                id="exampleInputEmail1"
+                placeholder="Enter Loan Amount"
+                [(ngModel)]="loanAmount"
+                name="customerID"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Loan Amount</label>
+              <input
+                type="number"
+                class="form-control"
+                id="exampleInputEmail1"
+                placeholder="Enter Loan Amount"
+                [(ngModel)]="loanAmount"
+                name="loanAmount"
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Select Loan Paying Type</label>
+              <select
+                class="form-control select2"
+                style="width: 100%"
+                [(ngModel)]="selectedLoan"
+                (ngModelChange)="onLoanSelected()"
+                name="selectedPackage"
+              >
+                <option
+                  *ngFor="let package of packageArray"
+                  [value]="package.index"
+                >
+                  package id: {{ package.index }}, duration:
+                  {{ package.period }}, interest rate: {{ package.interest }}
+                </option>
+              </select>
+            </div>
+            <div class="form-group clearfix">
+              <label>Select Loan Type</label><br />
+              <div class="icheck-primary d-inline gender-selection">
+                <input
+                  type="radio"
+                  [(ngModel)]="selectedLoanType"
+                  name="loanType"
+                  value="Personal"
+                  id="radioPrimary1"
+                  checked
+                />
+                <label for="radioPrimary1">Personal</label>
+              </div>
+              <div class="icheck-danger d-inline gender-selection">
+                <input
+                  type="radio"
+                  [(ngModel)]="selectedLoanType"
+                  name="loanType"
+                  value="Business"
+                  id="radioPrimary2"
+                />
+                <label for="radioPrimary2">Business</label>
+              </div>
+            </div>
+          </div>
+          <!-- /.card-body -->
+
+          <div class="card-footer">
+            <button
+              type="submit"
+              class="btn btn-warning swalDefaultSuccess"
+              (click)="proceed()"
+            >
+              Send to Manager
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
-  <div class="private-details">
-    
-    <h2>Employment Information</h2>
-    <label for="name">Present Employer:</label><br>
-  <input type="text" id="email" name="email"><br>
-  <label for="name">Occupancy:</label><br>
-  <input type="text" id="name" name="name"><br>
-  <label for="loan-amount">  Years of experience:</label><br>
-  <input type="number" id="Annual Income" name="Annual Income"><br>
-
-
-
-   <label for="email">Contact Number:</label><br>
-  <input type="email" id="email" name="email"><br>
-     
-
-
-  </div>
-  
-  <div>
-  <label for="loan-amount">Loan Amount:</label><br>
-  <input type="number" id="loan-amount" name="loan-amount"><br>
-  <label for="loan-amount">Annual Income:</label><br>
-  <input type="number" id="Annual Income" name="Annual Income"><br>
-  <label for="purpose">Purpose of Loan:</label><br>
-  <textarea id="purpose" name="purpose"></textarea><br>
-  <input type="submit" value="Submit">
-  </div>
-</form>
+</div>
