@@ -22,7 +22,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@types/toastr": "^2.1.40",
     "admin-lte": "^3.2.0",
-    "bootstrap": "^5.2.3",
+    "bootstrap": "^5.3.2",
     "bs-stepper": "^1.7.0",
     "chart.js": "^4.0.1",
     "font-awesome": "^4.7.0",
