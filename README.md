@@ -124,8 +124,162 @@ This is the main group project given by the Computer Science Department, Univers
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-You can use this Frontend as a custom bank management system Frontend.
+### Prerequisites
 
+Before running the frontend, ensure you have:
+1. **Node.js** (v14.x or higher) and **npm** installed
+2. **Backend server** running on `http://localhost:3000` (see Backend README)
+3. **MySQL database** with imported data (see Backend README for Docker setup)
+
+### Step 1: Install Dependencies
+
+From the Frontend directory, run:
+```sh
+npm install
+```
+
+This will install all required packages including:
+- Angular 15
+- Bootstrap 5.2
+- AdminLTE 3.2
+- Chart.js
+- ngx-toastr
+- and other dependencies
+
+### Step 2: Start the Development Server
+
+```sh
+npm start
+```
+
+Or use Angular CLI directly:
+```sh
+ng serve
+```
+
+The application will:
+- Compile and build the Angular application
+- Start a development server at `http://localhost:4200`
+- Watch for file changes and auto-reload
+
+### Step 3: Access the Application
+
+1. **Open your browser** and navigate to: `http://localhost:4200`
+
+2. **You will see the Welcome page** with two options:
+   - Sign In
+   - Sign Up
+
+3. **Click "Sign In"** to access the login page
+
+### Step 4: Login with Test Accounts
+
+The system has **three user types** with different dashboards and permissions:
+
+#### 1. Customer Dashboard
+- **Email:** damikaanupama@gmail.com
+- **Password:** 1234
+
+**Features Available:**
+- View account balance and details
+- Transfer money to other accounts
+- Withdraw cash
+- Apply for loans online (with fixed deposit collateral)
+- Create and manage fixed deposits
+- View transaction history
+- Update profile settings
+
+#### 2. Employee Dashboard
+- **Email:** nimalnimal@gmail.com
+- **Password:** 4567
+
+**Features Available:**
+- Register new customers
+- Create manual loans for customers
+- Process customer withdrawals
+- View employee statistics
+- Update profile settings
+
+#### 3. Manager Dashboard
+- **Email:** jkesoni@alexa.com
+- **Password:** Jewelle
+
+**Features Available:**
+- Approve or reject loan applications
+- Add new employees to the system
+- View loan approval statistics
+- Monitor branch performance
+- Update profile settings
+
+### Application Routes
+
+Once logged in, the application uses role-based routing:
+
+- **Customer:** `/dashboard/*`
+  - `/dashboard/home` - Account overview
+  - `/dashboard/transaction` - Transfer money
+  - `/dashboard/loan` - Apply for loans
+  - `/dashboard/fixed-deposit` - Manage FDs
+  - `/dashboard/settings` - Profile settings
+
+- **Employee:** `/employee-dashboard/*`
+  - `/employee-dashboard/employee-home` - Dashboard overview
+  - `/employee-dashboard/employee.register.customer` - Register customers
+  - `/employee-dashboard/employee.create.loan` - Create loans
+  - `/employee-dashboard/employee.withdrawal` - Process withdrawals
+  - `/employee-dashboard/employee.settings` - Profile settings
+
+- **Manager:** `/manager-dashboard/*`
+  - `/manager-dashboard/manager-home` - Dashboard overview
+  - `/manager-dashboard/manager.loan.approval` - Approve loans
+  - `/manager-dashboard/manager.add.employee` - Add employees
+  - `/manager-dashboard/manager.settings` - Profile settings
+
+### Environment Configuration
+
+The application connects to the backend API using configuration in:
+- `src/environments/environment.ts` (development)
+- `src/environments/environment.prod.ts` (production)
+
+**Default Backend URL:** `http://localhost:3000/api/v1/`
+
+To change the backend URL, edit `environment.ts`:
+```typescript
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:3000/api/v1/'
+};
+```
+
+### Building for Production
+
+To create a production build:
+```sh
+ng build --configuration production
+```
+
+The build artifacts will be stored in the `dist/` directory.
+
+### Troubleshooting
+
+**Port 4200 already in use:**
+```sh
+ng serve --port 4201
+```
+
+**Backend connection errors:**
+- Ensure backend is running on `http://localhost:3000`
+- Check CORS is enabled on backend
+- Verify MySQL container/database is running
+
+**Authentication issues:**
+- JWT tokens are stored in localStorage
+- Tokens expire after 2 hours
+- Clear localStorage and login again if needed
+
+### Stopping the Application
+
+Press `Ctrl+C` in the terminal to stop the development server.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
