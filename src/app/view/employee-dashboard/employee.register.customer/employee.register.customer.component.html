@@ -1,95 +1,187 @@
-<div class="card card-default">
-  <div class="card-body">
-    <form>
-      <div class="form-group">
-        <label for="name">Full name</label>
+<!-- Page Header -->
+<div class="mb-8 animate-fade-in">
+  <h1 class="text-4xl font-bold text-white mb-2">Register Customer</h1>
+  <p class="text-white/70">Create a new customer account</p>
+</div>
+
+<!-- Registration Form -->
+<div class="glass-card p-6 animate-slide-up max-w-4xl">
+  <div class="mb-6">
+    <h2 class="text-2xl font-bold text-white mb-1 flex items-center">
+      <i class="fas fa-user-plus mr-3 text-glass-emerald"></i>
+      Customer Information
+    </h2>
+    <p class="text-white/60 text-sm">Fill in the customer details below</p>
+  </div>
+
+  <form class="space-y-5">
+    <!-- Full Name -->
+    <div>
+      <label class="block text-white/80 text-sm font-medium mb-2">
+        Full Name <span class="text-red-400">*</span>
+      </label>
+      <div class="relative">
+        <i class="fas fa-id-card absolute left-4 top-1/2 transform -translate-y-1/2 text-white/50"></i>
         <input
           type="text"
-          class="form-control"
-          id="account_number"
-          placeholder="Enter name"
+          class="glass-input pl-12"
+          placeholder="Enter full name"
           [(ngModel)]="fullname"
           name="fullname"
         />
       </div>
+    </div>
 
-      <div class="form-group">
-        <label for="amount">Username</label>
+    <!-- Username -->
+    <div>
+      <label class="block text-white/80 text-sm font-medium mb-2">
+        Username <span class="text-red-400">*</span>
+      </label>
+      <div class="relative">
+        <i class="fas fa-user absolute left-4 top-1/2 transform -translate-y-1/2 text-white/50"></i>
         <input
           type="text"
-          class="form-control"
-          placeholder="username"
+          class="glass-input pl-12"
+          placeholder="Enter username"
           [(ngModel)]="username"
           name="username"
         />
       </div>
-      <div class="form-group">
-        <label for="amount">Password</label>
+    </div>
+
+    <!-- Password -->
+    <div>
+      <label class="block text-white/80 text-sm font-medium mb-2">
+        Password <span class="text-red-400">*</span>
+      </label>
+      <div class="relative">
+        <i class="fas fa-lock absolute left-4 top-1/2 transform -translate-y-1/2 text-white/50"></i>
         <input
           type="password"
-          class="form-control"
-          placeholder="password"
+          class="glass-input pl-12"
+          placeholder="Enter password"
           [(ngModel)]="password"
           name="password"
         />
       </div>
-      <div class="form-group">
-        <label>User Type</label>
-        <select
-          class="form-control select2"
-          disabled="disabled"
-          style="width: 100%"
-        >
-          <option selected="selected">Customer</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="amount">Email</label>
+    </div>
+
+    <!-- User Type (Disabled) -->
+    <div>
+      <label class="block text-white/80 text-sm font-medium mb-2">
+        User Type
+      </label>
+      <div class="relative">
+        <i class="fas fa-users absolute left-4 top-1/2 transform -translate-y-1/2 text-white/50 z-10"></i>
         <input
-          type="email"
-          class="form-control"
-          placeholder="email"
-          [(ngModel)]="email"
-          name="address"
+          type="text"
+          class="glass-input pl-12 cursor-not-allowed opacity-70"
+          value="Customer"
+          disabled
         />
       </div>
-      <div class="form-group">
-        <label for="amount">Address</label>
-        <input type="text" class="form-control" placeholder="Address" 
-        [(ngModel)]="address"
-          name="address"/>
+    </div>
+
+    <!-- Email -->
+    <div>
+      <label class="block text-white/80 text-sm font-medium mb-2">
+        Email <span class="text-red-400">*</span>
+      </label>
+      <div class="relative">
+        <i class="fas fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-white/50"></i>
+        <input
+          type="email"
+          class="glass-input pl-12"
+          placeholder="Enter email address"
+          [(ngModel)]="email"
+          name="email"
+        />
       </div>
-      <div class="form-group">
-        <label for="amount">Contact Number</label>
+    </div>
+
+    <!-- Address -->
+    <div>
+      <label class="block text-white/80 text-sm font-medium mb-2">
+        Address <span class="text-red-400">*</span>
+      </label>
+      <div class="relative">
+        <i class="fas fa-map-marker-alt absolute left-4 top-4 text-white/50"></i>
+        <textarea
+          class="glass-input pl-12 resize-none"
+          rows="3"
+          placeholder="Enter address"
+          [(ngModel)]="address"
+          name="address"
+        ></textarea>
+      </div>
+    </div>
+
+    <!-- Contact Number -->
+    <div>
+      <label class="block text-white/80 text-sm font-medium mb-2">
+        Contact Number <span class="text-red-400">*</span>
+      </label>
+      <div class="relative">
+        <i class="fas fa-phone absolute left-4 top-1/2 transform -translate-y-1/2 text-white/50"></i>
         <input
           type="tel"
-          class="form-control"
-          placeholder="contact number"
+          class="glass-input pl-12"
+          placeholder="Enter contact number"
           [(ngModel)]="contact_no"
           name="contact_no"
         />
       </div>
-      <div class="form-group">
-        <label>Gender</label>
+    </div>
+
+    <!-- Gender -->
+    <div>
+      <label class="block text-white/80 text-sm font-medium mb-2">
+        Gender <span class="text-red-400">*</span>
+      </label>
+      <div class="relative">
+        <i class="fas fa-venus-mars absolute left-4 top-1/2 transform -translate-y-1/2 text-white/50 z-10"></i>
         <select
-          class="form-control select2"
-          style="width: 100%"
+          class="glass-input pl-12 appearance-none cursor-pointer"
           [(ngModel)]="gender"
           name="gender"
         >
-          <option selected="selected">Male</option>
-          <option>Female</option>
-          <option>Other</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
         </select>
+        <i class="fas fa-chevron-down absolute right-4 top-1/2 transform -translate-y-1/2 text-white/50 pointer-events-none"></i>
       </div>
-      <div class="form-group">
-        <label for="start-date" id="bdate">Date of Birth</label>
-        <input type="date" id="start-date" [(ngModel)]="dob" name="dob" />
+    </div>
+
+    <!-- Date of Birth -->
+    <div>
+      <label class="block text-white/80 text-sm font-medium mb-2">
+        Date of Birth <span class="text-red-400">*</span>
+      </label>
+      <div class="relative">
+        <i class="fas fa-calendar absolute left-4 top-1/2 transform -translate-y-1/2 text-white/50 z-10"></i>
+        <input
+          type="date"
+          class="glass-input pl-12 appearance-none cursor-pointer"
+          [(ngModel)]="dob"
+          name="dob"
+        />
       </div>
-      <button type="submit" class="btn btn-primary" (click)="submit()">
-        Submit
+    </div>
+
+    <!-- Submit Button -->
+    <div class="flex gap-3 pt-4">
+      <button
+        type="button"
+        class="glass-button justify-center"
+        (click)="submit()"
+        [disabled]="!fullname || !username || !password || !email || !address || !contact_no || !gender || !dob"
+        [class.opacity-50]="!fullname || !username || !password || !email || !address || !contact_no || !gender || !dob"
+        [class.cursor-not-allowed]="!fullname || !username || !password || !email || !address || !contact_no || !gender || !dob"
+      >
+        <i class="fas fa-check-circle mr-2"></i>
+        Register Customer
       </button>
-    </form>
-  </div>
-  <!-- /.card -->
+    </div>
+  </form>
 </div>

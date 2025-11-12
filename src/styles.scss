@@ -1,36 +1,171 @@
+// Tailwind CSS imports
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Keep FontAwesome for icons
 @import '../node_modules/admin-lte/plugins/fontawesome-free/css/all.min.css';
-@import '../node_modules/admin-lte/dist/css/adminlte.min.css';
-@import '../node_modules/admin-lte/plugins/overlayScrollbars/css/OverlayScrollbars.min.css';
-@import "../node_modules/bootstrap/scss/bootstrap";
+
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+// Base styles
 html, body {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-  overflow-x: hidden
-  
+  font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f1419 100%);
+  min-height: 100vh;
 }
-/* width */
-// ::-webkit-scrollbar {
-//   width: 10px;
-// }
 
-// /* Track */
-// ::-webkit-scrollbar-track {
-//   box-shadow: inset 0 0 5px grey; 
-//   border-radius: 5px;
-// }
- 
-// /* Handle */
-// ::-webkit-scrollbar-thumb {
-//   background: rgba(255, 255, 255, 0.25); 
-//   /* border-radius: 5px; */
-// }
+// Glassmorphism utility classes
+@layer components {
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-glass;
+  }
 
-// /* Handle on hover */
-// ::-webkit-scrollbar-thumb:hover {
-//   background: grey;
-//   cursor: grab;
-// }
+  .glass-card-hover {
+    @apply transition-all duration-300 hover:bg-white/20 hover:shadow-glass-lg hover:scale-[1.02];
+  }
+
+  .glass-input {
+    @apply bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 transition-all;
+  }
+
+  .glass-button {
+    @apply bg-gradient-to-r from-glass-purple to-glass-blue text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:shadow-neon-purple transition-all duration-300 hover:scale-105 active:scale-95;
+  }
+
+  .glass-button-secondary {
+    @apply bg-white/20 backdrop-blur-sm text-white font-semibold px-6 py-3 rounded-xl border border-white/30 hover:bg-white/30 transition-all duration-300 hover:scale-105 active:scale-95;
+  }
+
+  .glass-sidebar {
+    @apply bg-glass-darker/40 backdrop-blur-xl border-r border-white/10;
+  }
+
+  .glass-navbar {
+    @apply bg-white/10 backdrop-blur-xl border-b border-white/20;
+  }
+
+  .glass-badge {
+    @apply bg-gradient-to-r from-glass-purple/80 to-glass-blue/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-white;
+  }
+
+  .glass-table {
+    @apply bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden border border-white/20;
+  }
+
+  .neon-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-glass-purple via-glass-pink to-glass-cyan;
+  }
+
+  .stat-card {
+    @apply glass-card p-6 transition-all duration-300 hover:shadow-glass-lg cursor-pointer;
+  }
+}
+
+// Custom scrollbar with glassmorphism
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.8), rgba(59, 130, 246, 0.8));
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 1), rgba(59, 130, 246, 1));
+}
+
+// Form elements styling
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.1) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+// Table styling
+table {
+  @apply w-full;
+
+  thead {
+    @apply bg-white/10 backdrop-blur-sm;
+
+    th {
+      @apply px-6 py-4 text-left text-xs font-semibold text-white/80 uppercase tracking-wider;
+    }
+  }
+
+  tbody {
+    tr {
+      @apply border-b border-white/10 hover:bg-white/5 transition-colors;
+
+      td {
+        @apply px-6 py-4 text-sm text-white/90;
+      }
+    }
+  }
+}
+
+// Animation utilities
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientFlow 3s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+// Loading spinner
+.spinner {
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+// Utility classes
+.text-shadow {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.glow {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.6), 0 0 40px rgba(59, 130, 246, 0.4);
+}
+
+// Print styles
+@media print {
+  body {
+    background: white;
+  }
+}

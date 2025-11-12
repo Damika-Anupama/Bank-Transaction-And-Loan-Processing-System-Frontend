@@ -14,10 +14,10 @@ export class TransactionComponent implements OnInit {
   account_type = '';
   saving_type = '';
   branch = '';
-  accounts = null;
-  selectedAccount = null;
-  transactions = null;
-  cumulativeBalance = null;
+  accounts: any[] | null = null;
+  selectedAccount: any = null;
+  transactions: any[] | null = null;
+  cumulativeBalance: any = null;
 
   transfer_amount = '';
   sender_remarks = '';

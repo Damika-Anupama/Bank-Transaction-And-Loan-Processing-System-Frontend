@@ -1,22 +1,41 @@
-.top-logo{
-    padding: 40px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+// Dashboard specific styles
+.nav-link-item {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
 
-.nav-item-edit{
-    margin: 10px 0;
-    font-size: 20px;
-}
-
-@media (min-width: 992px) {
-    .additional-button-bar {
-      display: none;
-    }
+  &:hover {
+    color: rgba(255, 255, 255, 1);
   }
 
-
-  .hidden {
-    display: none;
+  &.active-link {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(59, 130, 246, 0.3));
+    color: white;
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
   }
+}
+
+.nav-icon-btn {
+  @apply flex items-center justify-center w-10 h-10 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-all duration-300;
+}
+
+.animate-slide-right {
+  animation: slideRight 0.3s ease-out;
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 1024px) {
+  .sidebar-wrapper {
+    left: 0;
+  }
+}

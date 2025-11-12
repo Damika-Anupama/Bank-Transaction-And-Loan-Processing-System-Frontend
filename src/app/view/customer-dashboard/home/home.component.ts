@@ -14,10 +14,10 @@ Chart.register(...registerables);
 export class HomeComponent implements OnInit {
   username = '';
   userType = '';
-  accounts = null;
+  accounts: any[] | null = null;
   balance = '';
   accountNumber = '';
-  selectedAccount = null;
+  selectedAccount: any = null;
   searchTerm = ''
   constructor(private router: Router, private userService: UserService) {}
   

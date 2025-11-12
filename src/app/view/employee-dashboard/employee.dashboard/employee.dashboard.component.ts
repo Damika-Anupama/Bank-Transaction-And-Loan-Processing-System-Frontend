@@ -7,7 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./employee.dashboard.component.scss']
 })
 export class EmployeeDashboardComponent {
+  isSidebarOpen = false;
+
   constructor(private router: Router) {}
+
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
+
   exit() {
     // empty local storage and navigate to the welcome page
     localStorage.clear();

@@ -1,10 +1,7 @@
-#main-logo{
-    height: 200px;
-    margin: 20px;
-}
-
-.lockscreen-item{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+// Welcome page specific styles
+:host {
+  display: block;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
 }

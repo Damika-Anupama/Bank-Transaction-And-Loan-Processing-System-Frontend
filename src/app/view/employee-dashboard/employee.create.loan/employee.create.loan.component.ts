@@ -8,6 +8,7 @@ import { loanPackage } from 'src/app/model/LoanPackage';
   styleUrls: ['./employee.create.loan.component.scss']
 })
 export class EmployeeCreateLoanComponent {
+  customerID: string = '';
   loans: any;
   maximumLoanAmount: number = 0;
   loanAmount: number = 0;

@@ -7,7 +7,10 @@ import { NavigationStart, Router } from '@angular/router';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit{
+  mobileSidebarOpen = false;
+
   constructor(private router: Router) {}
+
   ngOnInit() {
     // this.router.events.subscribe(event => {
     //   if (event instanceof NavigationStart) {
@@ -18,9 +21,15 @@ export class DashboardComponent implements OnInit{
     //   }
     // });
   }
+
+  toggleMobileSidebar() {
+    this.mobileSidebarOpen = !this.mobileSidebarOpen;
+  }
+
   isSmallScreen(): boolean {
     return window.innerWidth < 768;
   }
+
   exit() {
     // empty local storage and navigate to the welcome page
     localStorage.clear();

@@ -1,132 +1,244 @@
-<!-- <div class="preloader flex-column justify-content-center align-items-center">
-  <img class="animation__shake" src="assets/logo.png" alt="Logo" height="100">
-</div> -->
-<div>
-
-  <!-- Preloader -->
-
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <ul class="navbar-nav additional-button-bar" ng-hide="isSmallScreen()">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="./home" role="button"><i class="nav-icon fa fa-home" aria-hidden="true"></i></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="./transaction" role="button"><i class="nav-icon fa fa-money-bill" aria-hidden="true"></i></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="./fixed-deposit" role="button"><i class="nav-icon fas fa-handshake"  aria-hidden="true"></i></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="./loan" role="button"><i class="nav-icon fa fa-dollar-sign"  aria-hidden="true"></i></a>
-      </li>
-    </ul>
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-      <!-- Settings -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" routerLink="./settings">
-          <i class="fa fa-cogs" aria-hidden="true"></i>
-        </a>
-      </li>
-      <!-- Full Screen -->
-      <li class="nav-item top-nav-item">
-        <a class="nav-link" role="button" mat-button data-widget="fullscreen">
-          <i class="fas fa-expand-arrows-alt"></i>
-        </a>
-      </li>
-      <!-- Exit -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" href="#" (click)="exit()">
-          <i class="fa fa-door-open" aria-hidden="true"></i>
-        </a>
-      </li>
-    </ul>
-  </nav>
-  <!-- /.navbar -->
-
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a routerLink="/dashboard" class="brand-link top-logo" style="position: initial;">
-      <img src="assets\logo.png" alt="Logo" class="elevation-4" style="height: 80px">
-    </a>
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item nav-item-edit">
-            <a routerLink="./home" class="nav-link" routerLinkActive="active">
-              <i class="nav-icon fa fa-home" aria-hidden="true"></i>
-              <p>
-                Home
-              </p>
-            </a>
-          </li>
-          <li class="nav-item nav-item-edit">
-            <a routerLink="./transaction" class="nav-link" routerLinkActive="active">
-              <i class="nav-icon fa fa-money-bill" aria-hidden="true"></i>
-              <p>
-                Transaction
-              </p>
-            </a>
-          </li>
-          <li class="nav-item nav-item-edit">
-            <a routerLink="./fixed-deposit" class="nav-link" routerLinkActive="active">
-              <i class="nav-icon fas fa-handshake"  aria-hidden="true"></i>
-              <p>
-                Fixed Deposit
-              </p>
-            </a>
-          </li>
-          <li class="nav-item nav-item-edit">
-            <a routerLink="./loan" class="nav-link" routerLinkActive="active">
-              <i class="nav-icon fa fa-dollar-sign"  aria-hidden="true"></i>
-              <p>
-                Loan
-              </p>
-            </a>
-          </li>
-          
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
+<div class="min-h-screen flex">
+  <!-- Sidebar -->
+  <aside class="sidebar-wrapper glass-sidebar hidden lg:flex lg:flex-col w-64 fixed h-full z-20">
+    <!-- Logo -->
+    <div class="p-6 border-b border-white/10">
+      <a routerLink="/dashboard" class="flex items-center justify-center">
+        <img
+          src="assets/logo.png"
+          alt="Bank Logo"
+          class="h-16 w-auto drop-shadow-xl"
+        >
+      </a>
     </div>
-    <!-- /.sidebar -->
+
+    <!-- Navigation Menu -->
+    <nav class="flex-1 px-4 py-6 overflow-y-auto">
+      <ul class="space-y-2">
+        <li>
+          <a
+            routerLink="./home"
+            routerLinkActive="active-link"
+            class="nav-link-item flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 hover:bg-white/10"
+          >
+            <i class="fas fa-home text-xl"></i>
+            <span class="font-medium">Home</span>
+          </a>
+        </li>
+        <li>
+          <a
+            routerLink="./transaction"
+            routerLinkActive="active-link"
+            class="nav-link-item flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 hover:bg-white/10"
+          >
+            <i class="fas fa-exchange-alt text-xl"></i>
+            <span class="font-medium">Transaction</span>
+          </a>
+        </li>
+        <li>
+          <a
+            routerLink="./fixed-deposit"
+            routerLinkActive="active-link"
+            class="nav-link-item flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 hover:bg-white/10"
+          >
+            <i class="fas fa-piggy-bank text-xl"></i>
+            <span class="font-medium">Fixed Deposit</span>
+          </a>
+        </li>
+        <li>
+          <a
+            routerLink="./loan"
+            routerLinkActive="active-link"
+            class="nav-link-item flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 hover:bg-white/10"
+          >
+            <i class="fas fa-hand-holding-usd text-xl"></i>
+            <span class="font-medium">Loan</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Footer Links -->
+    <div class="p-4 border-t border-white/10">
+      <p class="text-white/50 text-xs text-center">
+        &copy; 2022-2025 DBS Group7<br>
+        <span class="text-white/40">Version 1.0.0</span>
+      </p>
+    </div>
   </aside>
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+  <!-- Main Content Area -->
+  <div class="flex-1 flex flex-col lg:ml-64">
+    <!-- Top Navbar -->
+    <header class="glass-navbar sticky top-0 z-10">
+      <div class="flex items-center justify-between px-4 lg:px-8 py-4">
+        <!-- Mobile Menu Button & Logo -->
+        <div class="flex items-center gap-4">
+          <button
+            class="lg:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
+            (click)="toggleMobileSidebar()"
+          >
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+          <img
+            src="assets/logo.png"
+            alt="Logo"
+            class="h-10 w-auto lg:hidden"
+          >
+        </div>
 
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
+        <!-- Quick Navigation (Desktop) -->
+        <nav class="hidden lg:flex items-center gap-2">
+          <a
+            routerLink="./home"
+            class="nav-icon-btn"
+            title="Home"
+          >
+            <i class="fas fa-home"></i>
+          </a>
+          <a
+            routerLink="./transaction"
+            class="nav-icon-btn"
+            title="Transaction"
+          >
+            <i class="fas fa-exchange-alt"></i>
+          </a>
+          <a
+            routerLink="./fixed-deposit"
+            class="nav-icon-btn"
+            title="Fixed Deposit"
+          >
+            <i class="fas fa-piggy-bank"></i>
+          </a>
+          <a
+            routerLink="./loan"
+            class="nav-icon-btn"
+            title="Loan"
+          >
+            <i class="fas fa-hand-holding-usd"></i>
+          </a>
+        </nav>
+
+        <!-- Right Actions -->
+        <div class="flex items-center gap-2">
+          <a
+            routerLink="./settings"
+            class="nav-icon-btn"
+            title="Settings"
+          >
+            <i class="fas fa-cog"></i>
+          </a>
+          <button
+            class="nav-icon-btn hidden md:flex"
+            title="Fullscreen"
+            data-widget="fullscreen"
+          >
+            <i class="fas fa-expand-arrows-alt"></i>
+          </button>
+          <button
+            class="nav-icon-btn hover:bg-red-500/20"
+            title="Logout"
+            (click)="exit()"
+          >
+            <i class="fas fa-sign-out-alt"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Content -->
+    <main class="flex-1 p-4 lg:p-8 overflow-y-auto">
+      <div class="max-w-7xl mx-auto">
         <router-outlet></router-outlet>
-      </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
+      </div>
+    </main>
   </div>
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2022-2023 <a href="https://github.com/CSE-Semester3-Group7-Project/Fontend.git">DBS Group7</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 1.0.0
-    </div>
-  </footer>
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
+  <!-- Mobile Sidebar Overlay -->
+  <div
+    *ngIf="mobileSidebarOpen"
+    class="fixed inset-0 bg-black/50 backdrop-blur-sm z-30 lg:hidden"
+    (click)="toggleMobileSidebar()"
+  ></div>
+
+  <!-- Mobile Sidebar -->
+  <aside
+    *ngIf="mobileSidebarOpen"
+    class="sidebar-wrapper glass-sidebar flex flex-col w-64 fixed h-full z-40 lg:hidden animate-slide-right"
+  >
+    <!-- Logo -->
+    <div class="p-6 border-b border-white/10 flex items-center justify-between">
+      <a routerLink="/dashboard" class="flex items-center">
+        <img
+          src="assets/logo.png"
+          alt="Bank Logo"
+          class="h-12 w-auto drop-shadow-xl"
+        >
+      </a>
+      <button
+        class="text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
+        (click)="toggleMobileSidebar()"
+      >
+        <i class="fas fa-times text-xl"></i>
+      </button>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="flex-1 px-4 py-6 overflow-y-auto">
+      <ul class="space-y-2">
+        <li>
+          <a
+            routerLink="./home"
+            routerLinkActive="active-link"
+            class="nav-link-item flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 hover:bg-white/10"
+            (click)="toggleMobileSidebar()"
+          >
+            <i class="fas fa-home text-xl"></i>
+            <span class="font-medium">Home</span>
+          </a>
+        </li>
+        <li>
+          <a
+            routerLink="./transaction"
+            routerLinkActive="active-link"
+            class="nav-link-item flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 hover:bg-white/10"
+            (click)="toggleMobileSidebar()"
+          >
+            <i class="fas fa-exchange-alt text-xl"></i>
+            <span class="font-medium">Transaction</span>
+          </a>
+        </li>
+        <li>
+          <a
+            routerLink="./fixed-deposit"
+            routerLinkActive="active-link"
+            class="nav-link-item flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 hover:bg-white/10"
+            (click)="toggleMobileSidebar()"
+          >
+            <i class="fas fa-piggy-bank text-xl"></i>
+            <span class="font-medium">Fixed Deposit</span>
+          </a>
+        </li>
+        <li>
+          <a
+            routerLink="./loan"
+            routerLinkActive="active-link"
+            class="nav-link-item flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 hover:bg-white/10"
+            (click)="toggleMobileSidebar()"
+          >
+            <i class="fas fa-hand-holding-usd text-xl"></i>
+            <span class="font-medium">Loan</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Footer Links -->
+    <div class="p-4 border-t border-white/10">
+      <p class="text-white/50 text-xs text-center">
+        &copy; 2022-2025 DBS Group7<br>
+        <span class="text-white/40">Version 1.0.0</span>
+      </p>
+    </div>
   </aside>
-  <!-- /.control-sidebar -->
 </div>

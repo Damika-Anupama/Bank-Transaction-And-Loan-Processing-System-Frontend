@@ -1,115 +1,122 @@
-<div class="row">
-    <!-- left column -->
-    <div class="col-md-10">
-      <!-- general form elements -->
-      <div class="card card-primary">
-        <div class="card-header">
-          <h3 class="card-title">Change Your Details</h3>
-        </div>
-        <!-- /.card-header -->
-        <!-- form start -->
-        <form>
-          <div class="card-body">
-            <div class="form-group">
-              <label for="exampleInputEmail1">Username</label>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Enter email"
-              />
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Full Name</label>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Enter email"
-              />
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Email</label>
-              <input
-                type="email"
-                class="form-control"
-                id="exampleInputEmail1"
-                placeholder="Enter email"
-              />
-            </div>
-            <div class="form-group">
-              <label for="exampleInputPassword1">Password</label>
-              <input
-                type="password"
-                class="form-control"
-                id="exampleInputPassword1"
-                placeholder="Password"
-              />
-            </div>
-            <div class="form-check">
-              <input
-                type="checkbox"
-                class="form-check-input"
-                id="exampleCheck1"
-              />
-              <label class="form-check-label" for="exampleCheck1"
-                >Show</label
-              >
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Address</label>
-              <input
-                type="text"
-                class="form-control"
-                id="exampleInputEmail1"
-                placeholder="Enter email"
-              />
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1">Contact Number</label>
-              <input
-                type="text"
-                class="form-control"
-                id="exampleInputEmail1"
-                placeholder="Enter email"
-              />
-            </div>
-            <div class="form-group">
-              <label>Date of Birth</label>
-                <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                    <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate"/>
-                    <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group clearfix">
-              <label>Gender</label><br>
-              <div class="icheck-primary d-inline gender-selection">
-                <input type="radio" id="radioPrimary1" name="r1" checked>
-                <label for="radioPrimary1">
-                  Male
-                </label>
-              </div>
-              <div class="icheck-danger d-inline gender-selection">
-                <input type="radio" id="radioPrimary2" name="r1">
-                <label for="radioPrimary2">
-                  Female
-                </label>
-              </div>
-              <div class="icheck-success d-inline gender-selection">
-                <input type="radio" id="radioPrimary3" name="r1">
-                <label for="radioPrimary3">
-                  Other
-                </label>
-              </div>
-            </div>
-          </div>
-          <!-- /.card-body -->    
-  
-          <div class="card-footer">
-            <button type="submit" class="btn btn-primary">Change</button>
-          </div>
-        </form>
+<!-- Page Header -->
+<div class="mb-8 animate-fade-in">
+  <h1 class="text-4xl font-bold text-white mb-2">Settings</h1>
+  <p class="text-white/70">Manage your account settings and preferences</p>
+</div>
+
+<!-- Settings Form -->
+<div class="glass-card p-6 animate-slide-up max-w-4xl">
+  <div class="mb-6">
+    <h2 class="text-2xl font-bold text-white mb-1 flex items-center">
+      <i class="fas fa-user-cog mr-3 text-glass-cyan"></i>
+      Change Your Details
+    </h2>
+    <p class="text-white/60 text-sm">Update your personal information</p>
+  </div>
+
+  <form class="space-y-5">
+    <div>
+      <label class="block text-white/80 text-sm font-medium mb-2">Username</label>
+      <div class="relative">
+        <i class="fas fa-user absolute left-4 top-1/2 transform -translate-y-1/2 text-white/50"></i>
+        <input type="text" class="glass-input pl-12" placeholder="Enter username" />
       </div>
     </div>
-  </div>
-  
+
+    <div>
+      <label class="block text-white/80 text-sm font-medium mb-2">Full Name</label>
+      <div class="relative">
+        <i class="fas fa-id-card absolute left-4 top-1/2 transform -translate-y-1/2 text-white/50"></i>
+        <input type="text" class="glass-input pl-12" placeholder="Enter full name" />
+      </div>
+    </div>
+
+    <div>
+      <label class="block text-white/80 text-sm font-medium mb-2">Email</label>
+      <div class="relative">
+        <i class="fas fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-white/50"></i>
+        <input type="email" class="glass-input pl-12" placeholder="Enter email address" />
+      </div>
+    </div>
+
+    <div>
+      <label class="block text-white/80 text-sm font-medium mb-2">Password</label>
+      <div class="relative">
+        <i class="fas fa-lock absolute left-4 top-1/2 transform -translate-y-1/2 text-white/50"></i>
+        <input type="password" class="glass-input pl-12 pr-12" placeholder="Enter password" />
+        <button type="button" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white/50 hover:text-white transition-colors">
+          <i class="fas fa-eye"></i>
+        </button>
+      </div>
+    </div>
+
+    <div>
+      <label class="block text-white/80 text-sm font-medium mb-2">Address</label>
+      <div class="relative">
+        <i class="fas fa-map-marker-alt absolute left-4 top-4 text-white/50"></i>
+        <textarea class="glass-input pl-12 resize-none" rows="3" placeholder="Enter address"></textarea>
+      </div>
+    </div>
+
+    <div>
+      <label class="block text-white/80 text-sm font-medium mb-2">Contact Number</label>
+      <div class="relative">
+        <i class="fas fa-phone absolute left-4 top-1/2 transform -translate-y-1/2 text-white/50"></i>
+        <input type="tel" class="glass-input pl-12" placeholder="Enter contact number" />
+      </div>
+    </div>
+
+    <div>
+      <label class="block text-white/80 text-sm font-medium mb-2">Date of Birth</label>
+      <div class="relative">
+        <i class="fas fa-calendar absolute left-4 top-1/2 transform -translate-y-1/2 text-white/50 z-10"></i>
+        <input type="date" class="glass-input pl-12 appearance-none cursor-pointer" />
+      </div>
+    </div>
+
+    <div>
+      <label class="block text-white/80 text-sm font-medium mb-3">Gender</label>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <label class="glass-card p-4 cursor-pointer transition-all duration-300 hover:scale-105 group">
+          <input type="radio" name="gender" value="Male" class="hidden peer" checked />
+          <div class="flex items-center justify-between peer-checked:text-glass-cyan text-white/70">
+            <div class="flex items-center">
+              <i class="fas fa-mars text-2xl mr-3"></i>
+              <span class="font-medium">Male</span>
+            </div>
+            <i class="fas fa-check-circle text-transparent peer-checked:text-glass-cyan"></i>
+          </div>
+        </label>
+
+        <label class="glass-card p-4 cursor-pointer transition-all duration-300 hover:scale-105 group">
+          <input type="radio" name="gender" value="Female" class="hidden peer" />
+          <div class="flex items-center justify-between peer-checked:text-glass-pink text-white/70">
+            <div class="flex items-center">
+              <i class="fas fa-venus text-2xl mr-3"></i>
+              <span class="font-medium">Female</span>
+            </div>
+            <i class="fas fa-check-circle text-transparent peer-checked:text-glass-pink"></i>
+          </div>
+        </label>
+
+        <label class="glass-card p-4 cursor-pointer transition-all duration-300 hover:scale-105 group">
+          <input type="radio" name="gender" value="Other" class="hidden peer" />
+          <div class="flex items-center justify-between peer-checked:text-glass-purple text-white/70">
+            <div class="flex items-center">
+              <i class="fas fa-genderless text-2xl mr-3"></i>
+              <span class="font-medium">Other</span>
+            </div>
+            <i class="fas fa-check-circle text-transparent peer-checked:text-glass-purple"></i>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <div class="flex gap-3 pt-4">
+      <button type="submit" class="glass-button justify-center">
+        <i class="fas fa-save mr-2"></i>
+        Save Changes
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,8 +1,5 @@
-.cursor-pointer {
-    cursor: pointer;
-  }
-
-  .selected {
-    background-color: #eee;
-  }
-  
+// Home component specific styles
+:host {
+  display: block;
+  width: 100%;
+}
