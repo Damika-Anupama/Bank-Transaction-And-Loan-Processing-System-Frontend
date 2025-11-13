@@ -31,7 +31,6 @@ export class EmployeeCreateLoanComponent {
         this.interest = element.interest;
       }
     }
-    console.log(this.duration, this.interest);
   }
   proceed(){
 

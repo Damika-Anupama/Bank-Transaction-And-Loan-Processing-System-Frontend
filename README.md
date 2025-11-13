@@ -13,22 +13,21 @@ Backend code repository: https://github.com/Damika-Anupama/Bank-Transaction-And-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/CSE-Semester3-Group7-Project/Frontend/">
-    <img src="src/assets/uom.png" alt="Logo" width="100" height="100" style = "margin: 0 50px 0 0">
-    <img src="src/assets/logo.png" alt="Logo" width="250" height="100" margin="0 10 0">
+  <a href="https://github.com/Damika-Anupama/Bank-Transaction-And-Loan-Processing-System-Frontend/">
+    <img src="src/assets/logo.png" alt="Logo" width="250" height="100">
   </a>
 
   <h3 align="center">Bank Transaction And Loan Processing System - Frontend</h3>
 
   <p align="center">
-    A Group Project Done by Group No. 7 for Semester 3 Module CS3043 - Database Systems
+    A full-stack banking application with comprehensive transaction and loan management capabilities
     <br />
-    <a href="https://github.com/CSE-Semester3-Group7-Project/Frontend/blob/main/assets/ProjectDescription.pdf"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Damika-Anupama/Bank-Transaction-And-Loan-Processing-System-Frontend"><strong>Explore the repository »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/CSE-Semester3-Group7-Project/Frontend/issues">Report Bug</a>
+    <a href="https://github.com/Damika-Anupama/Bank-Transaction-And-Loan-Processing-System-Frontend/issues">Report Bug</a>
     ·
-    <a href="https://github.com/CSE-Semester3-Group7-Project/Frontend/pulls">Request Feature</a>
+    <a href="https://github.com/Damika-Anupama/Bank-Transaction-And-Loan-Processing-System-Frontend/pulls">Request Feature</a>
   </p>
 </div>
 
@@ -66,7 +65,7 @@ Backend code repository: https://github.com/Damika-Anupama/Bank-Transaction-And-
   <img src="src/assets/logo1.png" alt="Logo" width="400" height="350" style = "margin: 50px">
 </div>
 <br>
-This is the main group project given by the Computer Science Department, University of Moratuwa in the Semester 3 CS3043 - Database Systems Module. Here contains the Frontend of the Bank Transaction And Loan Processing System. If you want to go to the backend of this application, you can find it by following this <a href="https://github.com/CSE-Semester3-Group7-Project/Backend">link</a>.
+This is a comprehensive banking management system featuring transaction processing, loan management, and fixed deposit handling. The application provides role-based dashboards for customers, employees, and managers. This repository contains the Frontend of the Bank Transaction And Loan Processing System. The backend of this application can be found by following this <a href="https://github.com/Damika-Anupama/Bank-Transaction-And-Loan-Processing-System-Backend">link</a>.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -75,20 +74,16 @@ This is the main group project given by the Computer Science Department, Univers
 <br>
 
 - [![AngularCLI](https://img.shields.io/badge/AngularCLI-15-red.svg?logo=angular)](https://angular.io/)
-- [![TypeScript](https://img.shields.io/badge/TypeScript-3.9-blue.svg?logo=typescript)](https://www.typescriptlang.org/)
+- [![TypeScript](https://img.shields.io/badge/TypeScript-4.8-blue.svg?logo=typescript)](https://www.typescriptlang.org/)
+- [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4-cyan.svg?logo=tailwindcss)](https://tailwindcss.com/)
 - [![ECMAScript](https://img.shields.io/badge/ECMAScript-2020-yellow.svg?logo=javascript)](https://www.ecma-international.org/ecma-262/11.0/index.html)
-- [![jQuery](https://img.shields.io/badge/jQuery-3.6-green.svg?logo=jquery)](https://jquery.com/)
 - [![HTML5](https://img.shields.io/badge/HTML5-5.2-orange.svg?logo=html5)](https://www.w3.org/TR/html52/)
-- [![Sass](https://img.shields.io/badge/Sass-1.26-pink.svg?logo=sass)](https://sass-lang.com/)
 - [![CSS3](https://img.shields.io/badge/CSS3-3.0-purple.svg?logo=css3)](https://www.w3.org/TR/css-2018/)
-- [![Bootstrap](https://img.shields.io/badge/Bootstrap-4.6-yellowgreen.svg?logo=bootstrap)](https://getbootstrap.com/)
-- [![AdminLTE3](https://img.shields.io/badge/AdminLTE3-3.0-lightgrey.svg?logo=adminlte&logoColor=white)](https://adminlte.io/)
-- [![Webpack](https://img.shields.io/badge/Webpack-5.5-blue.svg?logo=webpack)](https://webpack.js.org/)
+- [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.2-yellowgreen.svg?logo=bootstrap)](https://getbootstrap.com/)
 - [![Git](https://img.shields.io/badge/Git-2.28-lightblue.svg?logo=git)](https://git-scm.com/)
-- [![JWT Tokens](https://img.shields.io/badge/JWT%20Tokens-0.2-lightpurple.svg?logo=jwt&logoColor=white)](https://jwt.io/)
-- [![Node](https://img.shields.io/badge/Node-14.12-lightgreen.svg?logo=node.js)](https://nodejs.org/)
-- [![npm](https://img.shields.io/badge/npm-7.0-lightred.svg?logo=npm)](https://www.npmjs.com/)
-- [![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-1.52-blue.svg?logo=visual-studio-code)](https://code.visualstudio.com/)
+- [![JWT Tokens](https://img.shields.io/badge/JWT%20Tokens-8.5-lightpurple.svg?logo=jwt&logoColor=white)](https://jwt.io/)
+- [![Node](https://img.shields.io/badge/Node-14+-lightgreen.svg?logo=node.js)](https://nodejs.org/)
+- [![npm](https://img.shields.io/badge/npm-7.0+-lightred.svg?logo=npm)](https://www.npmjs.com/)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -110,7 +105,7 @@ This is the main group project given by the Computer Science Department, Univers
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/CSE-Semester3-Group7-Project/Frontend.git
+   git clone https://github.com/Damika-Anupama/Bank-Transaction-And-Loan-Processing-System-Frontend.git
    ```
 2. Install NPM packages
    ```sh
@@ -141,7 +136,7 @@ npm install
 This will install all required packages including:
 - Angular 15
 - Bootstrap 5.2
-- AdminLTE 3.2
+- TailwindCSS 3.4
 - Chart.js
 - ngx-toastr
 - and other dependencies
@@ -334,13 +329,13 @@ Use this space to list resources you find helpful and would like to give credit 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/CSE-Semester3-Group7-Project/Frontend.svg?style=for-the-badge
-[contributors-url]: https://github.com/CSE-Semester3-Group7-Project/Frontend/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/CSE-Semester3-Group7-Project/Frontend.svg?style=for-the-badge
-[forks-url]: https://github.com/CSE-Semester3-Group7-Project/Frontend/network/members
-[stars-shield]: https://img.shields.io/github/stars/CSE-Semester3-Group7-Project/Frontend.svg?style=for-the-badge
-[stars-url]: https://github.com/CSE-Semester3-Group7-Project/Frontend/stargazers
-[issues-shield]: https://img.shields.io/github/issues/CSE-Semester3-Group7-Project/Frontend.svg?style=for-the-badge
-[issues-url]: https://github.com/CSE-Semester3-Group7-Project/Frontend/issues
-[license-shield]: https://img.shields.io/github/license/CSE-Semester3-Group7-Project/Frontend.svg?style=for-the-badge
-[license-url]: https://github.com/CSE-Semester3-Group7-Project/Frontend/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/Damika-Anupama/Bank-Transaction-And-Loan-Processing-System-Frontend.svg?style=for-the-badge
+[contributors-url]: https://github.com/Damika-Anupama/Bank-Transaction-And-Loan-Processing-System-Frontend/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Damika-Anupama/Bank-Transaction-And-Loan-Processing-System-Frontend.svg?style=for-the-badge
+[forks-url]: https://github.com/Damika-Anupama/Bank-Transaction-And-Loan-Processing-System-Frontend/network/members
+[stars-shield]: https://img.shields.io/github/stars/Damika-Anupama/Bank-Transaction-And-Loan-Processing-System-Frontend.svg?style=for-the-badge
+[stars-url]: https://github.com/Damika-Anupama/Bank-Transaction-And-Loan-Processing-System-Frontend/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Damika-Anupama/Bank-Transaction-And-Loan-Processing-System-Frontend.svg?style=for-the-badge
+[issues-url]: https://github.com/Damika-Anupama/Bank-Transaction-And-Loan-Processing-System-Frontend/issues
+[license-shield]: https://img.shields.io/github/license/Damika-Anupama/Bank-Transaction-And-Loan-Processing-System-Frontend.svg?style=for-the-badge
+[license-url]: https://github.com/Damika-Anupama/Bank-Transaction-And-Loan-Processing-System-Frontend/LICENSE

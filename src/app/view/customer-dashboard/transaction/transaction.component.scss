@@ -7,10 +7,20 @@
   }
 
   .selected {
-    background-color: #eee;
+    background-color: var(--glass-bg);
+    color: var(--text-primary);
   }
-  
+
   .required {
-    color: red;
+    color: #dc2626;
+  }
+
+  // Ensure theme support for this component
+  .dark .selected {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .dark .required {
+    color: #fca5a5;
   }
   

@@ -180,7 +180,7 @@ export class TemplatePageTitleStrategy extends TitleStrategy {
   override updateTitle(routerState: RouterStateSnapshot) {
     const title = this.buildTitle(routerState);
     if (title !== undefined) {
-      this.title.setTitle(`DBS Project | ${title}`);
+      this.title.setTitle(`Banking System | ${title}`);
     }
   }
 }

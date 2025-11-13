@@ -47,7 +47,6 @@ export class TransactionComponent implements OnInit {
     this.account_id = account.account_id;
   }
   showToast(data: any) {
-    console.log(data);
     if (data.message == 'Transfer created successfully!') {
       Swal.fire({
         title: 'Success',
@@ -79,7 +78,6 @@ export class TransactionComponent implements OnInit {
   loadDataToTable(accountId: any) {
     this.transactionService.getTransactions(accountId).subscribe(
       (data) => {
-        console.log(data.data);
         this.transactions = data.data;
       }
     );

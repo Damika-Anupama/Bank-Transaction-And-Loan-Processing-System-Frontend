@@ -81,7 +81,6 @@ export class UserService {
     body.append('shortDes', shortDes);
     body.append('profilePic', profilePic);
     body.append('phoneNum', phoneNumber);
-    console.log(userId,username,)
     return this.http.put(environment.baseUrl + `/api/v1/users/${userId}`, body,{
       headers : new HttpHeaders({
         // 'Content-Type': 'multipart/form-data'

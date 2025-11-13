@@ -13,7 +13,6 @@ export class ManagerLoanApprovalComponent implements OnInit{
   ngOnInit(): void {
     this.loanService.getUnapprovedLoans().subscribe((data) => {
       this.loans = data.data;
-      console.log(this.loans);
     }
     );
   }

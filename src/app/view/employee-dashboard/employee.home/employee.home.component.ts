@@ -12,7 +12,6 @@ export class EmployeeHomeComponent implements OnInit{
   ngOnInit(): void {
     this.home.getEmployeeHome().subscribe((data) => {
       this.customers = data.data;
-      console.log(data);
     });
   }
 

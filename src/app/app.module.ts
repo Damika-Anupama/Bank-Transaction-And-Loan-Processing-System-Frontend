@@ -31,6 +31,7 @@ import { EmployeeWithdrawalComponent } from './view/employee-dashboard/employee.
 import { SettingsComponent } from './view/customer-dashboard/settings/settings.component';
 import { ManagerSettingsComponent } from './view/manager-dashboard/manager.settings/manager.settings.component';
 import { EmployeeSettingsComponent } from './view/employee-dashboard/employee.settings/employee.settings.component';
+import { PreloaderComponent } from './shared/preloader/preloader.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { EmployeeSettingsComponent } from './view/employee-dashboard/employee.se
     EmployeeWithdrawalComponent,
     SettingsComponent,
     ManagerSettingsComponent,
-    EmployeeSettingsComponent
+    EmployeeSettingsComponent,
+    PreloaderComponent
   ],
   imports: [
     BrowserModule,

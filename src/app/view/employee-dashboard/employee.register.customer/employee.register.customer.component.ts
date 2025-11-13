@@ -54,7 +54,6 @@ export class EmployeeRegisterCustomerComponent {
         email: this.email,
         contact_no: this.contact_no
       };
-      console.log(body);
       this.registerCustomer.registerCustomer(body).subscribe((res) => {
         Swal.fire({
           title: 'Success',

@@ -1,14 +1,29 @@
 // Dashboard specific styles
 .nav-item {
-  @apply flex items-center gap-3 px-4 py-3 rounded-xl text-white/80 hover:text-white hover:bg-white/10 transition-all duration-300;
+  color: var(--text-secondary);
+  background: transparent;
+  @apply flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300;
+
+  &:hover {
+    color: var(--text-primary);
+    background: var(--glass-bg);
+  }
 }
 
 .active-nav-item {
-  @apply bg-gradient-to-r from-glass-purple/30 to-glass-blue/30 text-white shadow-lg;
+  color: var(--text-primary);
+  @apply bg-gradient-to-r from-glass-purple/30 to-glass-blue/30 shadow-lg;
 }
 
 .navbar-icon-btn {
-  @apply flex items-center justify-center w-10 h-10 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-all duration-300;
+  color: var(--text-secondary);
+  background: transparent;
+  @apply flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-300;
+
+  &:hover {
+    color: var(--text-primary);
+    background: var(--glass-bg);
+  }
 }
 
 .nav-icon {

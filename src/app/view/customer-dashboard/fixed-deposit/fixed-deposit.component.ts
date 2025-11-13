@@ -34,11 +34,9 @@ export class FixedDepositComponent implements OnInit {
   ngOnInit(): void {
     this.fdService.getSavingAccountsDetails().subscribe((res) => {
       this.savingAccounts = res.result;
-      console.log(res.result);
     });
     this.loanService.getFDs().subscribe((data) => {
       this.fds = data.data;
-      console.log(this.fds);
     });
   }
   onAccountSelected() {
@@ -84,12 +82,7 @@ export class FixedDepositComponent implements OnInit {
             this.rpa = "15";
             break;
         }
-        console.log(
-          this.savingAccountId,this.duration,this.rpa,
-          this.fdAmount
-        );
         this.fdService.createFD(this.savingAccountId,this.duration,this.rpa,Number(this.fdAmount)).subscribe((data) => {
-          console.log(data);
           Swal.fire({
             title: 'Success',
             text: 'data.message',

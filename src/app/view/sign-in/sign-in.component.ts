@@ -14,7 +14,6 @@ export class SignInComponent {
   authenticate(): void {
     this.userService.authenticate(this.email, this.password).subscribe(
       (user) => {
-        console.log(user);
         const token = user.token;
         const type = user.type;
         localStorage.setItem('token', token);
@@ -34,7 +33,6 @@ export class SignInComponent {
 
       },
       (err) => {
-        console.log(err);
       }
     );
   }

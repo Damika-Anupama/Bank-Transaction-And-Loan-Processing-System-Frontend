@@ -30,11 +30,9 @@ export class LoanComponent implements OnInit {
 
   ngOnInit(): void {
     this.loanService.getFDs().subscribe((data) => {
-      console.log(data.data);
       this.fds = data.data;
     });
     this.loanService.getLoans().subscribe((data) => {
-      console.log(data.data);
       this.loans = data.data;
     });
   }
@@ -42,7 +40,6 @@ export class LoanComponent implements OnInit {
     return duration.replace(/_/g, ' ').toLowerCase();
   }
   onFDSelected() {
-    console.log(this.selectedFD.amount);
     if (Number(this.selectedFD.amount) * 0.6 < 500000) {
       this.maximumLoanAmount = Number(this.selectedFD.amount) * 0.6;
       this.selectedFDId = this.selectedFD.fd_id;
@@ -57,7 +54,6 @@ export class LoanComponent implements OnInit {
         this.interest = element.interest;
       }
     }
-    console.log(this.duration, this.interest);
   }
   checkLoanAmount() {
     if (this.loanAmount > this.maximumLoanAmount) {
@@ -101,10 +97,8 @@ export class LoanComponent implements OnInit {
     }
 
 
-    console.log(this.selectedFD.fd_id,this.loanAmount, localStorage.getItem("userId"), this.duration,this.interest, this.selectedLoanType);
     if(this.selectedFD && this.selectedLoan && this.loanAmount && this.selectedLoanType){
       this.loanService.applyLoan(this.selectedFD.fd_id,this.loanAmount, localStorage.getItem("userId"), this.duration,this.interest, this.selectedLoanType).subscribe(data=>{
-        console.log(data);
         Swal.fire({
           icon: 'success',
           title: 'Success',

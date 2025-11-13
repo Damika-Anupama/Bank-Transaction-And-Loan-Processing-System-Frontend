@@ -56,7 +56,6 @@ export class ManagerAddEmployeeComponent {
         contact_no: this.contact_no,
         branch_id: this.branch_id,
       };
-      console.log(body);
       this.addEmployee.saveEmployee(body).subscribe((res) => {
         Swal.fire({
           title: 'Success',

@@ -34,7 +34,6 @@ export class ManagerHomeComponent implements OnInit {
       });
       this.managerService.getLateLoans(this.branch_id).subscribe((loans) => {
         this.loans = loans;
-        console.log(this.loans);
       });
     });
 
