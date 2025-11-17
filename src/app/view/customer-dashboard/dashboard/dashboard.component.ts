@@ -39,8 +39,17 @@ export class DashboardComponent implements OnInit{
   }
 
   exit() {
-    // empty local storage and navigate to the welcome page
+    // Save theme preference before clearing localStorage
+    const currentTheme = localStorage.getItem('theme');
+
+    // Clear all localStorage except theme
     localStorage.clear();
+
+    // Restore theme preference
+    if (currentTheme) {
+      localStorage.setItem('theme', currentTheme);
+    }
+
     this.router.navigate(['/welcome']);
   }
 }

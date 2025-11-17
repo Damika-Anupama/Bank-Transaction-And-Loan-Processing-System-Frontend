@@ -9,8 +9,14 @@ export class ThemeService {
   public isDarkMode$: Observable<boolean> = this.isDarkModeSubject.asObservable();
 
   constructor() {
-    // Load theme from localStorage or default to light
+    // Load theme from localStorage or default to light mode
     const savedTheme = localStorage.getItem('theme');
+
+    // If no theme is saved, default to light mode and save it
+    if (!savedTheme) {
+      localStorage.setItem('theme', 'light');
+    }
+
     const isDark = savedTheme === 'dark';
     this.isDarkModeSubject.next(isDark);
     this.applyTheme(isDark);
