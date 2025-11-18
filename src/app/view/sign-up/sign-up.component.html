@@ -1,129 +1,131 @@
-<div class="min-h-screen flex items-center justify-center px-4 py-12">
-  <div class="max-w-md w-full animate-scale-in">
-    <!-- Register Card -->
-    <div class="glass-card p-8 md:p-10">
-      <!-- Logo -->
-      <div class="text-center mb-8">
-        <img
-          src="assets/logo.png"
-          alt="Bank Logo"
-          class="h-24 w-auto mx-auto mb-6 drop-shadow-2xl glow"
-        >
-        <h2 class="text-3xl font-bold text-white mb-2">Create Account</h2>
-        <p class="text-white/70">Register for a new membership</p>
-      </div>
-
-      <!-- Register Form -->
-      <form action="./dashboard" method="get" class="space-y-5">
-        <!-- Full Name Field -->
-        <div>
-          <label class="block text-white/80 text-sm font-medium mb-2">
-            <i class="fas fa-user mr-2"></i>Full Name
-          </label>
-          <input
-            type="text"
-            placeholder="Enter your full name"
-            class="glass-input w-full"
+<div class="h-screen flex items-center justify-center px-4 py-4 overflow-hidden">
+  <div class="max-w-md w-full h-full flex items-center justify-center">
+    <div class="w-full max-h-full overflow-y-auto animate-scale-in">
+      <!-- Register Card -->
+      <div class="glass-card p-6 md:p-8 lg:p-10">
+        <!-- Logo -->
+        <div class="text-center mb-4 md:mb-6">
+          <img
+            src="assets/logo.png"
+            alt="Bank Logo"
+            class="h-16 md:h-20 lg:h-24 w-auto mx-auto mb-3 md:mb-4 drop-shadow-2xl glow"
           >
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Create Account</h2>
+          <p class="text-sm md:text-base text-white/70">Register for a new membership</p>
         </div>
 
-        <!-- Email Field -->
-        <div>
-          <label class="block text-white/80 text-sm font-medium mb-2">
-            <i class="fas fa-envelope mr-2"></i>Email Address
-          </label>
-          <input
-            type="email"
-            placeholder="Enter your email"
-            class="glass-input w-full"
+        <!-- Register Form -->
+        <form action="./dashboard" method="get" class="space-y-3 md:space-y-4">
+          <!-- Full Name Field -->
+          <div>
+            <label class="block text-white/80 text-sm font-medium mb-2">
+              <i class="fas fa-user mr-2"></i>Full Name
+            </label>
+            <input
+              type="text"
+              placeholder="Enter your full name"
+              class="glass-input w-full"
+            >
+          </div>
+
+          <!-- Email Field -->
+          <div>
+            <label class="block text-white/80 text-sm font-medium mb-2">
+              <i class="fas fa-envelope mr-2"></i>Email Address
+            </label>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              class="glass-input w-full"
+            >
+          </div>
+
+          <!-- Password Field -->
+          <div>
+            <label class="block text-white/80 text-sm font-medium mb-2">
+              <i class="fas fa-lock mr-2"></i>Password
+            </label>
+            <input
+              type="password"
+              placeholder="Create a password"
+              class="glass-input w-full"
+            >
+          </div>
+
+          <!-- Confirm Password Field -->
+          <div>
+            <label class="block text-white/80 text-sm font-medium mb-2">
+              <i class="fas fa-lock mr-2"></i>Confirm Password
+            </label>
+            <input
+              type="password"
+              placeholder="Retype your password"
+              class="glass-input w-full"
+            >
+          </div>
+
+          <!-- Terms Checkbox -->
+          <div class="flex items-start gap-3 pt-1 md:pt-2">
+            <input
+              type="checkbox"
+              id="agreeTerms"
+              name="terms"
+              value="agree"
+              class="mt-1 w-4 h-4 md:w-5 md:h-5 rounded bg-white/20 border-white/30 text-glass-purple focus:ring-2 focus:ring-white/50 cursor-pointer"
+            >
+            <label for="agreeTerms" class="text-white/80 text-xs md:text-sm cursor-pointer">
+              I agree to the
+              <a href="#" class="text-glass-cyan hover:text-glass-blue font-semibold transition-colors duration-300">
+                terms and conditions
+              </a>
+            </label>
+          </div>
+
+          <!-- Register Button -->
+          <button
+            type="submit"
+            class="glass-button w-full text-base md:text-lg py-3 md:py-4 group mt-4 md:mt-6"
           >
+            <span class="flex items-center justify-center gap-3">
+              Create Account
+              <i class="fas fa-user-plus"></i>
+            </span>
+          </button>
+        </form>
+
+        <!-- Divider -->
+        <div class="relative my-4 md:my-6">
+          <div class="absolute inset-0 flex items-center">
+            <div class="w-full border-t border-white/20"></div>
+          </div>
+          <div class="relative flex justify-center text-sm">
+            <span class="px-4 bg-white/10 backdrop-blur-sm text-white/60 rounded-full">
+              Or
+            </span>
+          </div>
         </div>
 
-        <!-- Password Field -->
-        <div>
-          <label class="block text-white/80 text-sm font-medium mb-2">
-            <i class="fas fa-lock mr-2"></i>Password
-          </label>
-          <input
-            type="password"
-            placeholder="Create a password"
-            class="glass-input w-full"
-          >
-        </div>
-
-        <!-- Confirm Password Field -->
-        <div>
-          <label class="block text-white/80 text-sm font-medium mb-2">
-            <i class="fas fa-lock mr-2"></i>Confirm Password
-          </label>
-          <input
-            type="password"
-            placeholder="Retype your password"
-            class="glass-input w-full"
-          >
-        </div>
-
-        <!-- Terms Checkbox -->
-        <div class="flex items-start gap-3 pt-2">
-          <input
-            type="checkbox"
-            id="agreeTerms"
-            name="terms"
-            value="agree"
-            class="mt-1 w-5 h-5 rounded bg-white/20 border-white/30 text-glass-purple focus:ring-2 focus:ring-white/50 cursor-pointer"
-          >
-          <label for="agreeTerms" class="text-white/80 text-sm cursor-pointer">
-            I agree to the
-            <a href="#" class="text-glass-cyan hover:text-glass-blue font-semibold transition-colors duration-300">
-              terms and conditions
+        <!-- Sign In Link -->
+        <div class="text-center">
+          <p class="text-sm md:text-base text-white/70">
+            Already have an account?
+            <a
+              routerLink="/sign-in"
+              class="text-glass-cyan hover:text-glass-blue font-semibold ml-2 transition-colors duration-300"
+            >
+              Sign In
             </a>
-          </label>
-        </div>
-
-        <!-- Register Button -->
-        <button
-          type="submit"
-          class="glass-button w-full text-lg py-4 group mt-6"
-        >
-          <span class="flex items-center justify-center gap-3">
-            Create Account
-            <i class="fas fa-user-plus"></i>
-          </span>
-        </button>
-      </form>
-
-      <!-- Divider -->
-      <div class="relative my-8">
-        <div class="absolute inset-0 flex items-center">
-          <div class="w-full border-t border-white/20"></div>
-        </div>
-        <div class="relative flex justify-center text-sm">
-          <span class="px-4 bg-white/10 backdrop-blur-sm text-white/60 rounded-full">
-            Or
-          </span>
+          </p>
         </div>
       </div>
 
-      <!-- Sign In Link -->
-      <div class="text-center">
-        <p class="text-white/70">
-          Already have an account?
-          <a
-            routerLink="/sign-in"
-            class="text-glass-cyan hover:text-glass-blue font-semibold ml-2 transition-colors duration-300"
-          >
-            Sign In
-          </a>
+      <!-- Additional Info -->
+      <div class="mt-4 md:mt-6 text-center">
+        <p class="text-white/60 text-xs md:text-sm">
+          <i class="fas fa-shield-alt mr-2"></i>
+          Your information is protected and secure
         </p>
       </div>
-    </div>
-
-    <!-- Additional Info -->
-    <div class="mt-8 text-center">
-      <p class="text-white/60 text-sm">
-        <i class="fas fa-shield-alt mr-2"></i>
-        Your information is protected and secure
-      </p>
     </div>
   </div>
 </div>

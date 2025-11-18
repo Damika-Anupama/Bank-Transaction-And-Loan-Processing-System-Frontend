@@ -1,68 +1,70 @@
-<div class="min-h-screen flex items-center justify-center px-4 py-12 animate-fade-in">
-  <div class="max-w-4xl w-full">
-    <!-- Floating Logo Card -->
-    <div class="glass-card glass-card-hover text-center p-12 animate-float">
-      <!-- Logo with Glow Effect -->
-      <div class="mb-8 inline-block">
-        <img
-          src="assets/logo.png"
-          alt="Bank Logo"
-          class="h-40 w-auto mx-auto drop-shadow-2xl animate-scale-in glow"
+<div class="h-screen flex items-center justify-center px-4 py-4 md:py-8 overflow-hidden animate-fade-in">
+  <div class="max-w-4xl w-full h-full flex items-center justify-center">
+    <div class="w-full max-h-full overflow-y-auto rounded-3xl p-2" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(59, 130, 246, 0.05) 50%, rgba(236, 72, 153, 0.05) 100%);">
+      <!-- Floating Logo Card -->
+      <div class="glass-card glass-card-hover text-center p-6 md:p-8 lg:p-10 animate-float">
+        <!-- Logo with Glow Effect -->
+        <div class="mb-4 md:mb-6 inline-block">
+          <img
+            src="assets/logo.png"
+            alt="Bank Logo"
+            class="h-20 md:h-28 lg:h-32 w-auto mx-auto drop-shadow-2xl animate-scale-in glow"
+          >
+        </div>
+
+        <!-- Title with Gradient Text -->
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4 neon-text animate-slide-down text-shadow">
+          Digital Banking System
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-lg md:text-xl lg:text-2xl text-white/90 mb-3 md:mb-4 font-light animate-slide-up">
+          Bank Transaction & Loan Processing
+        </p>
+
+        <!-- Description -->
+        <p class="text-sm md:text-base text-white/70 mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed">
+          Experience seamless banking with our cutting-edge transaction and loan processing system.
+          Secure, fast, and designed for the modern era.
+        </p>
+
+        <!-- CTA Button -->
+        <button
+          type="button"
+          class="glass-button text-base md:text-lg px-8 md:px-10 py-3 md:py-4 group focus:outline-none"
+          (click)="gotoSignin()"
         >
-      </div>
+          <span class="flex items-center justify-center gap-3">
+            Let's Get Started
+            <i class="fas fa-arrow-right transform group-hover:translate-x-2 transition-transform duration-300"></i>
+          </span>
+        </button>
 
-      <!-- Title with Gradient Text -->
-      <h1 class="text-5xl md:text-6xl font-bold mb-4 neon-text animate-slide-down text-shadow">
-        Digital Banking System
-      </h1>
-
-      <!-- Subtitle -->
-      <p class="text-xl md:text-2xl text-white/90 mb-4 font-light animate-slide-up">
-        Bank Transaction & Loan Processing
-      </p>
-
-      <!-- Description -->
-      <p class="text-white/70 mb-12 max-w-2xl mx-auto leading-relaxed">
-        Experience seamless banking with our cutting-edge transaction and loan processing system.
-        Secure, fast, and designed for the modern era.
-      </p>
-
-      <!-- CTA Button -->
-      <button
-        type="button"
-        class="glass-button text-lg px-10 py-4 group"
-        (click)="gotoSignin()"
-      >
-        <span class="flex items-center justify-center gap-3">
-          Let's Get Started
-          <i class="fas fa-arrow-right transform group-hover:translate-x-2 transition-transform duration-300"></i>
-        </span>
-      </button>
-
-      <!-- Features Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
-        <div class="glass-card p-6 text-center hover:scale-105 transition-transform duration-300">
-          <div class="text-4xl mb-3">
-            <i class="fas fa-lock text-glass-purple"></i>
+        <!-- Features Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-8 md:mt-12">
+          <div class="glass-card p-4 md:p-6 text-center hover:scale-105 transition-transform duration-300">
+            <div class="text-3xl md:text-4xl mb-2 md:mb-3">
+              <i class="fas fa-lock text-glass-purple"></i>
+            </div>
+            <h3 class="text-white font-semibold mb-1 md:mb-2">Secure</h3>
+            <p class="text-white/60 text-xs md:text-sm">Bank-grade security for your transactions</p>
           </div>
-          <h3 class="text-white font-semibold mb-2">Secure</h3>
-          <p class="text-white/60 text-sm">Bank-grade security for your transactions</p>
-        </div>
 
-        <div class="glass-card p-6 text-center hover:scale-105 transition-transform duration-300">
-          <div class="text-4xl mb-3">
-            <i class="fas fa-bolt text-glass-cyan"></i>
+          <div class="glass-card p-4 md:p-6 text-center hover:scale-105 transition-transform duration-300">
+            <div class="text-3xl md:text-4xl mb-2 md:mb-3">
+              <i class="fas fa-bolt text-glass-cyan"></i>
+            </div>
+            <h3 class="text-white font-semibold mb-1 md:mb-2">Fast</h3>
+            <p class="text-white/60 text-xs md:text-sm">Lightning-fast processing & transfers</p>
           </div>
-          <h3 class="text-white font-semibold mb-2">Fast</h3>
-          <p class="text-white/60 text-sm">Lightning-fast processing & transfers</p>
-        </div>
 
-        <div class="glass-card p-6 text-center hover:scale-105 transition-transform duration-300">
-          <div class="text-4xl mb-3">
-            <i class="fas fa-mobile-alt text-glass-pink"></i>
+          <div class="glass-card p-4 md:p-6 text-center hover:scale-105 transition-transform duration-300">
+            <div class="text-3xl md:text-4xl mb-2 md:mb-3">
+              <i class="fas fa-mobile-alt text-glass-pink"></i>
+            </div>
+            <h3 class="text-white font-semibold mb-1 md:mb-2">Accessible</h3>
+            <p class="text-white/60 text-xs md:text-sm">Bank anywhere, anytime, any device</p>
           </div>
-          <h3 class="text-white font-semibold mb-2">Accessible</h3>
-          <p class="text-white/60 text-sm">Bank anywhere, anytime, any device</p>
         </div>
       </div>
     </div>
