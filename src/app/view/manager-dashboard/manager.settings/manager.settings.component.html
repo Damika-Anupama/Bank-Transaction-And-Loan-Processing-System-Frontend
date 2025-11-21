@@ -1,121 +1,235 @@
 <!-- Page Header -->
 <div class="mb-8 animate-fade-in">
   <h1 class="text-4xl font-bold text-white mb-2">Settings</h1>
-  <p class="text-white/70">Manage your account settings and preferences</p>
+  <p class="text-white/70">Update your personal information and preferences</p>
+</div>
+
+<!-- Loading Indicator -->
+<div *ngIf="isLoading" class="flex justify-center items-center py-20">
+  <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-white"></div>
 </div>
 
 <!-- Settings Form -->
-<div class="glass-card p-6 animate-slide-up max-w-4xl">
+<div *ngIf="!isLoading" class="glass-card p-6 animate-slide-up max-w-4xl">
   <div class="mb-6">
     <h2 class="text-2xl font-bold text-white mb-1 flex items-center">
-      <i class="fas fa-user-cog mr-3 text-glass-cyan"></i>
+      <i class="fas fa-user-edit mr-3 text-glass-purple"></i>
       Change Your Details
     </h2>
-    <p class="text-white/60 text-sm">Update your personal information</p>
+    <p class="text-white/60 text-sm">Update your account information</p>
   </div>
 
-  <form class="space-y-5">
+  <form (ngSubmit)="saveSettings()" #settingsForm="ngForm" class="space-y-5">
+    <!-- Username -->
     <div>
-      <label class="block text-white/80 text-sm font-medium mb-2">Username</label>
+      <label class="block text-white/80 text-sm font-medium mb-2">
+        Username <span class="text-red-400">*</span>
+      </label>
       <div class="relative">
         <i class="fas fa-user absolute left-4 top-1/2 transform -translate-y-1/2 text-white/50"></i>
-        <input type="text" class="glass-input pl-12" placeholder="Enter username" />
+        <input
+          type="text"
+          [(ngModel)]="username"
+          name="username"
+          class="glass-input pl-12"
+          placeholder="Enter username"
+          required
+          minlength="3"
+        />
       </div>
     </div>
 
+    <!-- Full Name -->
     <div>
-      <label class="block text-white/80 text-sm font-medium mb-2">Full Name</label>
+      <label class="block text-white/80 text-sm font-medium mb-2">
+        Full Name <span class="text-red-400">*</span>
+      </label>
       <div class="relative">
         <i class="fas fa-id-card absolute left-4 top-1/2 transform -translate-y-1/2 text-white/50"></i>
-        <input type="text" class="glass-input pl-12" placeholder="Enter full name" />
+        <input
+          type="text"
+          [(ngModel)]="fullname"
+          name="fullname"
+          class="glass-input pl-12"
+          placeholder="Enter full name"
+          required
+        />
       </div>
     </div>
 
+    <!-- Email -->
     <div>
-      <label class="block text-white/80 text-sm font-medium mb-2">Email</label>
+      <label class="block text-white/80 text-sm font-medium mb-2">
+        Email Address <span class="text-red-400">*</span>
+      </label>
       <div class="relative">
         <i class="fas fa-envelope absolute left-4 top-1/2 transform -translate-y-1/2 text-white/50"></i>
-        <input type="email" class="glass-input pl-12" placeholder="Enter email address" />
+        <input
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          class="glass-input pl-12"
+          placeholder="Enter email address"
+          required
+          email
+        />
       </div>
     </div>
 
+    <!-- Password -->
     <div>
-      <label class="block text-white/80 text-sm font-medium mb-2">Password</label>
+      <label class="block text-white/80 text-sm font-medium mb-2">
+        Password <span class="text-white/50 text-xs">(leave empty to keep current)</span>
+      </label>
       <div class="relative">
         <i class="fas fa-lock absolute left-4 top-1/2 transform -translate-y-1/2 text-white/50"></i>
-        <input type="password" class="glass-input pl-12 pr-12" placeholder="Enter password" />
-        <button type="button" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white/50 hover:text-white transition-colors">
-          <i class="fas fa-eye"></i>
+        <input
+          [type]="showPassword ? 'text' : 'password'"
+          [(ngModel)]="password"
+          name="password"
+          class="glass-input pl-12 pr-12"
+          placeholder="Enter new password"
+        />
+        <button
+          type="button"
+          (click)="togglePasswordVisibility()"
+          class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white/50 hover:text-white/80 transition-colors"
+        >
+          <i [class]="showPassword ? 'fas fa-eye-slash' : 'fas fa-eye'"></i>
         </button>
       </div>
     </div>
 
+    <!-- Address -->
     <div>
-      <label class="block text-white/80 text-sm font-medium mb-2">Address</label>
+      <label class="block text-white/80 text-sm font-medium mb-2">
+        Address
+      </label>
       <div class="relative">
         <i class="fas fa-map-marker-alt absolute left-4 top-4 text-white/50"></i>
-        <textarea class="glass-input pl-12 resize-none" rows="3" placeholder="Enter address"></textarea>
+        <textarea
+          [(ngModel)]="address"
+          name="address"
+          class="glass-input pl-12 resize-none"
+          rows="3"
+          placeholder="Enter address"
+        ></textarea>
       </div>
     </div>
 
+    <!-- Contact Number -->
     <div>
-      <label class="block text-white/80 text-sm font-medium mb-2">Contact Number</label>
+      <label class="block text-white/80 text-sm font-medium mb-2">
+        Contact Number
+      </label>
       <div class="relative">
         <i class="fas fa-phone absolute left-4 top-1/2 transform -translate-y-1/2 text-white/50"></i>
-        <input type="tel" class="glass-input pl-12" placeholder="Enter contact number" />
+        <input
+          type="tel"
+          [(ngModel)]="contactNo"
+          name="contactNo"
+          class="glass-input pl-12"
+          placeholder="Enter contact number"
+          pattern="[0-9]{10}"
+        />
       </div>
     </div>
 
+    <!-- Date of Birth -->
     <div>
-      <label class="block text-white/80 text-sm font-medium mb-2">Date of Birth</label>
+      <label class="block text-white/80 text-sm font-medium mb-2">
+        Date of Birth
+      </label>
       <div class="relative">
         <i class="fas fa-calendar absolute left-4 top-1/2 transform -translate-y-1/2 text-white/50 z-10"></i>
-        <input type="date" class="glass-input pl-12 appearance-none cursor-pointer" />
+        <input
+          type="date"
+          [(ngModel)]="dob"
+          name="dob"
+          class="glass-input pl-12 appearance-none cursor-pointer"
+        />
       </div>
     </div>
 
+    <!-- Gender Selection -->
     <div>
-      <label class="block text-white/80 text-sm font-medium mb-3">Gender</label>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <label class="glass-card p-4 cursor-pointer transition-all duration-300 hover:scale-105 group">
-          <input type="radio" name="gender" value="Male" class="hidden peer" checked />
-          <div class="flex items-center justify-between peer-checked:text-glass-cyan text-white/70">
-            <div class="flex items-center">
-              <i class="fas fa-mars text-2xl mr-3"></i>
-              <span class="font-medium">Male</span>
+      <label class="block text-white/80 text-sm font-medium mb-3">
+        Gender
+      </label>
+      <div class="grid grid-cols-3 gap-4">
+        <label class="cursor-pointer">
+          <input
+            type="radio"
+            [(ngModel)]="gender"
+            name="gender"
+            value="MALE"
+            class="hidden peer"
+          />
+          <div class="p-4 rounded-xl backdrop-blur-md bg-white/5 border-2 border-white/10 transition-all duration-300 peer-checked:border-glass-blue peer-checked:bg-white/10">
+            <div class="flex flex-col items-center gap-2">
+              <i class="fas fa-mars text-glass-blue text-2xl"></i>
+              <div class="text-white font-semibold text-sm">Male</div>
             </div>
-            <i class="fas fa-check-circle text-transparent peer-checked:text-glass-cyan"></i>
           </div>
         </label>
 
-        <label class="glass-card p-4 cursor-pointer transition-all duration-300 hover:scale-105 group">
-          <input type="radio" name="gender" value="Female" class="hidden peer" />
-          <div class="flex items-center justify-between peer-checked:text-glass-pink text-white/70">
-            <div class="flex items-center">
-              <i class="fas fa-venus text-2xl mr-3"></i>
-              <span class="font-medium">Female</span>
+        <label class="cursor-pointer">
+          <input
+            type="radio"
+            [(ngModel)]="gender"
+            name="gender"
+            value="FEMALE"
+            class="hidden peer"
+          />
+          <div class="p-4 rounded-xl backdrop-blur-md bg-white/5 border-2 border-white/10 transition-all duration-300 peer-checked:border-glass-pink peer-checked:bg-white/10">
+            <div class="flex flex-col items-center gap-2">
+              <i class="fas fa-venus text-glass-pink text-2xl"></i>
+              <div class="text-white font-semibold text-sm">Female</div>
             </div>
-            <i class="fas fa-check-circle text-transparent peer-checked:text-glass-pink"></i>
           </div>
         </label>
 
-        <label class="glass-card p-4 cursor-pointer transition-all duration-300 hover:scale-105 group">
-          <input type="radio" name="gender" value="Other" class="hidden peer" />
-          <div class="flex items-center justify-between peer-checked:text-glass-purple text-white/70">
-            <div class="flex items-center">
-              <i class="fas fa-genderless text-2xl mr-3"></i>
-              <span class="font-medium">Other</span>
+        <label class="cursor-pointer">
+          <input
+            type="radio"
+            [(ngModel)]="gender"
+            name="gender"
+            value="OTHER"
+            class="hidden peer"
+          />
+          <div class="p-4 rounded-xl backdrop-blur-md bg-white/5 border-2 border-white/10 transition-all duration-300 peer-checked:border-glass-purple peer-checked:bg-white/10">
+            <div class="flex flex-col items-center gap-2">
+              <i class="fas fa-genderless text-glass-purple text-2xl"></i>
+              <div class="text-white font-semibold text-sm">Other</div>
             </div>
-            <i class="fas fa-check-circle text-transparent peer-checked:text-glass-purple"></i>
           </div>
         </label>
       </div>
     </div>
 
+    <!-- Submit Button -->
     <div class="flex gap-3 pt-4">
-      <button type="submit" class="glass-button justify-center">
-        <i class="fas fa-save mr-2"></i>
-        Save Changes
+      <button
+        type="submit"
+        [disabled]="isSaving || !settingsForm.valid"
+        class="glass-button justify-center"
+        [class.opacity-50]="isSaving || !settingsForm.valid"
+        [class.cursor-not-allowed]="isSaving || !settingsForm.valid"
+      >
+        <i *ngIf="!isSaving" class="fas fa-save mr-2"></i>
+        <i *ngIf="isSaving" class="fas fa-spinner fa-spin mr-2"></i>
+        {{ isSaving ? 'Saving...' : 'Save Changes' }}
+      </button>
+      <button
+        type="button"
+        (click)="resetForm()"
+        [disabled]="isSaving"
+        class="glass-button-secondary justify-center"
+        [class.opacity-50]="isSaving"
+        [class.cursor-not-allowed]="isSaving"
+      >
+        <i class="fas fa-undo mr-2"></i>
+        Reset
       </button>
     </div>
   </form>

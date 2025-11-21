@@ -210,39 +210,55 @@ export class UserService {
   }
 
   /**
-   * Updates user profile information
+   * Get user by ID
    * @param userId - User ID
-   * @param profilePic - Profile picture data
-   * @param shortDes - Short description
-   * @param username - Username
-   * @param email - Email address
-   * @param phoneNumber - Phone number
-   * @returns Observable with update response
+   * @returns Observable with user data
    */
-  updateUser(userId: string, profilePic: string, shortDes: string, username: string, email: string, phoneNumber: string): Observable<any> {
-    if (!userId) {
+  getById(userId: string | number): Observable<any> {
+    const userIdStr = String(userId);
+
+    if (!userIdStr) {
       return throwError(() => new Error('User ID is required'));
     }
-    if (!username || username.trim().length < 3) {
+
+    return this.http.get(environment.baseUrl + `/api/v1/user/${userIdStr}`).pipe(
+      timeout(30000),
+      retry(2),
+      catchError(this.handleError)
+    );
+  }
+
+  /**
+   * Updates user profile information
+   * @param userId - User ID
+   * @param userData - User data object containing fields to update
+   * @returns Observable with update response
+   */
+  updateUser(userId: string | number, userData: any): Observable<any> {
+    const userIdStr = String(userId);
+
+    if (!userIdStr) {
+      return throwError(() => new Error('User ID is required'));
+    }
+    if (!userData.username || userData.username.trim().length < 3) {
       return throwError(() => new Error('Username must be at least 3 characters'));
     }
-    if (!email || !email.includes('@')) {
+    if (!userData.email || !userData.email.includes('@')) {
       return throwError(() => new Error('Invalid email address'));
     }
 
-    const body: FormData = new FormData();
-    body.append('id', userId);
-    body.append('username', username);
-    body.append('email', email);
-    body.append('shortDes', shortDes);
-    body.append('profilePic', profilePic);
-    body.append('phoneNum', phoneNumber);
+    const body = {
+      username: userData.username,
+      email: userData.email,
+      fullname: userData.fullname || '',
+      address: userData.address || '',
+      contact_no: userData.contact_no || '',
+      dob: userData.dob || '',
+      gender: userData.gender || '',
+      password: userData.password || '' // Optional - only if changing password
+    };
 
-    return this.http.put(environment.baseUrl + `/api/v1/users/${userId}`, body, {
-      headers: new HttpHeaders({
-        // 'Content-Type': 'multipart/form-data'
-      })
-    }).pipe(
+    return this.http.put(environment.baseUrl + `/api/v1/user/${userIdStr}`, body).pipe(
       timeout(30000),
       retry(2),
       catchError(this.handleError)
@@ -268,4 +284,4 @@ export class UserService {
     console.error('Service Error:', errorMessage);
     return throwError(() => new Error(errorMessage));
   }
-}
+}// Force recompile
