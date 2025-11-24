@@ -1,6 +1,6 @@
 <!-- Page Header -->
 <div class="mb-8 animate-fade-in">
-  <h1 class="text-4xl font-bold text-white mb-2">Fixed Deposits</h1>
+  <h1 class="text-4xl font-bold mb-2">Fixed Deposits</h1>
   <p class="text-white/70">Manage your fixed deposit accounts and investments</p>
 </div>
 
@@ -26,7 +26,7 @@
   <!-- Create Fixed Deposit Form -->
   <div class="glass-card p-6 mb-8 animate-slide-up">
     <div class="mb-6">
-      <h2 class="text-2xl font-bold text-white mb-1 flex items-center">
+      <h2 class="text-2xl font-bold mb-1 flex items-center">
         <i class="fas fa-piggy-bank mr-3 text-glass-emerald"></i>
         Place a Fixed Deposit
       </h2>
@@ -117,7 +117,7 @@
   <!-- Previous Fixed Deposits Table -->
   <div class="glass-card p-6 animate-slide-up" style="animation-delay: 0.2s;">
     <div class="mb-6">
-      <h2 class="text-2xl font-bold text-white mb-1 flex items-center">
+      <h2 class="text-2xl font-bold mb-1 flex items-center">
         <i class="fas fa-history mr-3 text-glass-purple"></i>
         Your Fixed Deposits
       </h2>
@@ -172,7 +172,7 @@
               {{ fd.fd_opening_date | date: 'yyyy-MM-dd' }}
             </td>
             <td class="px-6 py-4">
-              <span class="text-white font-semibold text-lg">
+              <span class="font-semibold text-lg">
                 Rs. {{ fd.amount | number }}
               </span>
             </td>

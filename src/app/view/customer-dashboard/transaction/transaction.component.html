@@ -1,6 +1,6 @@
 <!-- Page Header -->
 <div class="mb-8 animate-fade-in">
-  <h1 class="text-4xl font-bold text-white mb-2">Transactions</h1>
+  <h1 class="text-4xl font-bold mb-2">Transactions</h1>
   <p class="text-white/70">Transfer money and view transaction history</p>
 </div>
 
@@ -11,7 +11,7 @@
     <div class="flex items-center justify-between">
       <div class="flex-1">
         <p class="text-white/70 text-sm mb-2">Current Account</p>
-        <h3 class="text-2xl font-bold text-white mb-3">{{ account_id }}</h3>
+        <h3 class="text-2xl font-bold mb-3">{{ account_id }}</h3>
         <div class="flex items-center gap-3">
           <span class="glass-badge bg-gradient-to-r from-glass-orange/80 to-glass-pink/80">
             <i class="fas fa-map-marker-alt mr-1"></i> {{ branch }}
@@ -29,7 +29,7 @@
     <div class="flex items-center justify-between">
       <div class="flex-1">
         <p class="text-white/70 text-sm mb-2">Available Balance</p>
-        <h3 class="text-3xl font-bold text-white mb-3">Rs. {{ balance | number }}</h3>
+        <h3 class="text-3xl font-bold mb-3">Rs. {{ balance | number }}</h3>
         <span class="glass-badge bg-gradient-to-r from-glass-emerald/80 to-glass-cyan/80">
           <i class="fas fa-check-circle mr-1"></i> {{ saving_type }}
         </span>
@@ -46,7 +46,7 @@
   <!-- Transfer Money Form -->
   <div class="lg:col-span-2 glass-card p-6 animate-slide-up" style="animation-delay: 0.2s;">
     <div class="mb-6">
-      <h2 class="text-2xl font-bold text-white mb-1 flex items-center">
+      <h2 class="text-2xl font-bold mb-1 flex items-center">
         <i class="fas fa-exchange-alt mr-3 text-glass-cyan"></i>
         Transfer Money
       </h2>
@@ -130,7 +130,7 @@
   <!-- All Accounts Card -->
   <div class="glass-card p-6 animate-slide-up" style="animation-delay: 0.3s;">
     <div class="mb-6">
-      <h3 class="text-xl font-bold text-white mb-1 flex items-center">
+      <h3 class="text-xl font-bold mb-1 flex items-center">
         <i class="fas fa-list mr-2 text-glass-purple"></i>
         Your Accounts
       </h3>
@@ -179,7 +179,7 @@
 <div class="glass-card p-6 animate-slide-up" style="animation-delay: 0.4s;">
   <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
     <div>
-      <h2 class="text-2xl font-bold text-white mb-1 flex items-center">
+      <h2 class="text-2xl font-bold mb-1 flex items-center">
         <i class="fas fa-history mr-3 text-glass-pink"></i>
         Transaction History
       </h2>
