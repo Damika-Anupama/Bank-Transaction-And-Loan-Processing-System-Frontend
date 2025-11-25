@@ -1,71 +1,58 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgChartsModule } from 'ng2-charts';
+
+// Routing
 import { AppRoutingModule } from './app-routing.module';
+
+// Core Module (singleton services, guards, interceptors)
+import { CoreModule } from './core/core.module';
+
+// Root Component
 import { AppComponent } from './app.component';
-import { httpInterceptorProvider } from './interceptors/interceptor-barrel';
-import { FixedDepositComponent } from './view/customer-dashboard/fixed-deposit/fixed-deposit.component';
-import { HomeComponent } from './view/customer-dashboard/home/home.component';
-import { LoanComponent } from './view/customer-dashboard/loan/loan.component';
+
+// Error Pages (not lazy loaded - always available)
 import { NotFoundComponent } from './view/not-found/not-found.component';
 import { ServerErrorComponent } from './view/server-error/server-error.component';
-import { SignInComponent } from './view/sign-in/sign-in.component';
-import { SignUpComponent } from './view/sign-up/sign-up.component';
-import { TransactionComponent } from './view/customer-dashboard/transaction/transaction.component';
-import { WelcomeComponent } from './view/welcome/welcome.component';
-import { FilterPipe } from './pipes/filter.pipe';
-import { ManagerLoanApprovalComponent } from './view/manager-dashboard/manager.loan.approval/manager.loan.approval.component';
-import { ManagerAddEmployeeComponent } from './view/manager-dashboard/manager.add.employee/manager.add.employee.component';
-import { ManagerHomeComponent } from './view/manager-dashboard/manager.home/manager.home.component';
-import { EmployeeHomeComponent } from './view/employee-dashboard/employee.home/employee.home.component';
-import { EmployeeCreateLoanComponent } from './view/employee-dashboard/employee.create.loan/employee.create.loan.component';
-import { EmployeeRegisterCustomerComponent } from './view/employee-dashboard/employee.register.customer/employee.register.customer.component';
-import { EmployeeWithdrawalComponent } from './view/employee-dashboard/employee.withdrawal/employee.withdrawal.component';
-import { SettingsComponent } from './view/customer-dashboard/settings/settings.component';
-import { ManagerSettingsComponent } from './view/manager-dashboard/manager.settings/manager.settings.component';
-import { EmployeeSettingsComponent } from './view/employee-dashboard/employee.settings/employee.settings.component';
-import { PreloaderComponent } from './shared/preloader/preloader.component';
-import { UnifiedDashboardComponent } from './shared/components/unified-dashboard/unified-dashboard.component';
 
+// Preloader Component (used in app.component.html)
+import { PreloaderComponent } from './shared/preloader/preloader.component';
+
+/**
+ * App Module (Root Module)
+ *
+ * This is the root module that bootstraps the Angular application.
+ * It imports:
+ * - Core module (singleton services, guards, interceptors)
+ * - Routing module with lazy-loaded feature modules
+ * - Global error pages (404, 500)
+ *
+ * All feature modules are lazy-loaded:
+ * - Auth Module (welcome, sign-in, sign-up)
+ * - Customer Module (customer dashboard)
+ * - Employee Module (employee dashboard)
+ * - Manager Module (manager dashboard)
+ *
+ * This approach improves:
+ * - Initial load time (smaller bundle)
+ * - Code organization (feature-based modules)
+ * - Maintainability (clear separation of concerns)
+ */
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent,
-    SignInComponent,
-    SignUpComponent,
-    NotFoundComponent,
-    ServerErrorComponent,
-    FixedDepositComponent,
-    HomeComponent,
-    LoanComponent,
-    TransactionComponent,
-    FilterPipe,
-    ManagerLoanApprovalComponent,
-    ManagerAddEmployeeComponent,
-    ManagerHomeComponent,
-    EmployeeHomeComponent,
-    EmployeeCreateLoanComponent,
-    EmployeeRegisterCustomerComponent,
-    EmployeeWithdrawalComponent,
-    SettingsComponent,
-    ManagerSettingsComponent,
-    EmployeeSettingsComponent,
+    // Global components used in app.component.html
     PreloaderComponent,
-    UnifiedDashboardComponent
+    // Global error pages
+    NotFoundComponent,
+    ServerErrorComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FontAwesomeModule,
-    NgChartsModule,
-    FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CoreModule,        // Singleton services, guards, interceptors
+    AppRoutingModule   // Routing with lazy-loaded modules
   ],
-  providers: [httpInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
