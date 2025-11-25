@@ -8,7 +8,6 @@ import { NgChartsModule } from 'ng2-charts';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { httpInterceptorProvider } from './interceptors/interceptor-barrel';
-import { DashboardComponent } from './view/customer-dashboard/dashboard/dashboard.component';
 import { FixedDepositComponent } from './view/customer-dashboard/fixed-deposit/fixed-deposit.component';
 import { HomeComponent } from './view/customer-dashboard/home/home.component';
 import { LoanComponent } from './view/customer-dashboard/loan/loan.component';
@@ -19,8 +18,6 @@ import { SignUpComponent } from './view/sign-up/sign-up.component';
 import { TransactionComponent } from './view/customer-dashboard/transaction/transaction.component';
 import { WelcomeComponent } from './view/welcome/welcome.component';
 import { FilterPipe } from './pipes/filter.pipe';
-import { EmployeeDashboardComponent } from './view/employee-dashboard/employee.dashboard/employee.dashboard.component';
-import { ManagerDashboardComponent } from './view/manager-dashboard/manager.dashboard/manager.dashboard.component';
 import { ManagerLoanApprovalComponent } from './view/manager-dashboard/manager.loan.approval/manager.loan.approval.component';
 import { ManagerAddEmployeeComponent } from './view/manager-dashboard/manager.add.employee/manager.add.employee.component';
 import { ManagerHomeComponent } from './view/manager-dashboard/manager.home/manager.home.component';
@@ -32,6 +29,7 @@ import { SettingsComponent } from './view/customer-dashboard/settings/settings.c
 import { ManagerSettingsComponent } from './view/manager-dashboard/manager.settings/manager.settings.component';
 import { EmployeeSettingsComponent } from './view/employee-dashboard/employee.settings/employee.settings.component';
 import { PreloaderComponent } from './shared/preloader/preloader.component';
+import { UnifiedDashboardComponent } from './shared/components/unified-dashboard/unified-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -41,14 +39,11 @@ import { PreloaderComponent } from './shared/preloader/preloader.component';
     SignUpComponent,
     NotFoundComponent,
     ServerErrorComponent,
-    DashboardComponent,
     FixedDepositComponent,
     HomeComponent,
     LoanComponent,
     TransactionComponent,
     FilterPipe,
-    EmployeeDashboardComponent,
-    ManagerDashboardComponent,
     ManagerLoanApprovalComponent,
     ManagerAddEmployeeComponent,
     ManagerHomeComponent,
@@ -59,7 +54,8 @@ import { PreloaderComponent } from './shared/preloader/preloader.component';
     SettingsComponent,
     ManagerSettingsComponent,
     EmployeeSettingsComponent,
-    PreloaderComponent
+    PreloaderComponent,
+    UnifiedDashboardComponent
   ],
   imports: [
     BrowserModule,
