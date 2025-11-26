@@ -516,5 +516,22 @@ describe('TransactionService', () => {
         req.flush({ message: 'Test error message' }, { status: 400, statusText: 'Bad Request' });
       }
     });
+
+    it('should handle client-side ErrorEvent', (done) => {
+      service.getAccountDetails().subscribe({
+        error: (error) => {
+          expect(error.message).toContain('Error: Test client error');
+          done();
+        }
+      });
+
+      // Trigger client-side error with ErrorEvent
+      for (let i = 0; i < 3; i++) {
+        const req = httpMock.expectOne(`${baseUrl}/api/v1/transaction/pageDetails/123`);
+        req.error(new ErrorEvent('Network error', {
+          message: 'Test client error'
+        }));
+      }
+    });
   });
 });

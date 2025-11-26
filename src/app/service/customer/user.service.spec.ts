@@ -197,6 +197,117 @@ describe('UserService', () => {
     });
   });
 
+  describe('getProfilePic()', () => {
+    it('should fetch profile picture successfully', (done) => {
+      const userIdentifier = 'user123';
+      const mockResponse = {
+        data: {
+          picture_url: 'https://example.com/profile.jpg',
+          picture_data: 'base64encodeddata'
+        }
+      };
+
+      service.getProfilePic(userIdentifier).subscribe({
+        next: (response) => {
+          expect(response).toEqual(mockResponse);
+          done();
+        }
+      });
+
+      const req = httpMock.expectOne(`${baseUrl}/api/v1/users/picture/${userIdentifier}`);
+      expect(req.request.method).toBe('GET');
+      req.flush(mockResponse);
+    });
+
+    it('should throw error if user identifier is null', (done) => {
+      service.getProfilePic(null).subscribe({
+        error: (error) => {
+          expect(error.message).toContain('User identifier is required');
+          done();
+        }
+      });
+    });
+
+    it('should throw error if user identifier is empty', (done) => {
+      service.getProfilePic('').subscribe({
+        error: (error) => {
+          expect(error.message).toContain('User identifier is required');
+          done();
+        }
+      });
+    });
+
+    it('should handle 404 error for non-existent profile picture', (done) => {
+      service.getProfilePic('user123').subscribe({
+        error: (error) => {
+          expect(error.message).toBeTruthy();
+          done();
+        }
+      });
+
+      for (let i = 0; i < 3; i++) {
+        const req = httpMock.expectOne(`${baseUrl}/api/v1/users/picture/user123`);
+        req.flush({ message: 'Profile picture not found' }, { status: 404, statusText: 'Not Found' });
+      }
+    });
+  });
+
+  describe('getById()', () => {
+    it('should fetch user by id successfully', (done) => {
+      const userId = '456';
+      const mockResponse = { data: mockUser };
+
+      service.getById(userId).subscribe({
+        next: (response) => {
+          expect(response).toEqual(mockResponse);
+          done();
+        }
+      });
+
+      const req = httpMock.expectOne(`${baseUrl}/api/v1/user/${userId}`);
+      expect(req.request.method).toBe('GET');
+      req.flush(mockResponse);
+    });
+
+    it('should accept numeric user ID', (done) => {
+      const userId = 789;
+      const mockResponse = { data: mockUser };
+
+      service.getById(userId).subscribe({
+        next: (response) => {
+          expect(response).toEqual(mockResponse);
+          done();
+        }
+      });
+
+      const req = httpMock.expectOne(`${baseUrl}/api/v1/user/789`);
+      req.flush(mockResponse);
+    });
+
+    it('should throw error for empty string user ID', (done) => {
+      service.getById('').subscribe({
+        error: (error) => {
+          expect(error.message).toContain('User ID is required');
+          done();
+        }
+      });
+    });
+
+    it('should handle 404 error for non-existent user', (done) => {
+      service.getById('999').subscribe({
+        error: (error) => {
+          expect(error.message).toBeTruthy();
+          done();
+        }
+      });
+
+      for (let i = 0; i < 3; i++) {
+        const req = httpMock.expectOne(`${baseUrl}/api/v1/user/999`);
+        req.flush({ message: 'User not found' }, { status: 404, statusText: 'Not Found' });
+      }
+    });
+  });
+
   describe('createAccount()', () => {
     const validAccountData = {
       uname: 'john_doe',
@@ -301,6 +412,36 @@ describe('UserService', () => {
 
       const req = httpMock.expectOne(`${baseUrl}/api/v1/users`);
       expect(req.request.body.gender).toBe('FEMALE');
+      req.flush({}, { status: 201, statusText: 'Created' });
+      done();
+    });
+
+    it('should map OTHER gender correctly', (done) => {
+      service.createAccount(
+        validAccountData.uname,
+        validAccountData.email,
+        validAccountData.contactNumber,
+        'Other',
+        validAccountData.pwd
+      ).subscribe();
+
+      const req = httpMock.expectOne(`${baseUrl}/api/v1/users`);
+      expect(req.request.body.gender).toBe('OTHER');
+      req.flush({}, { status: 201, statusText: 'Created' });
+      done();
+    });
+
+    it('should map unknown gender to OTHER', (done) => {
+      service.createAccount(
+        validAccountData.uname,
+        validAccountData.email,
+        validAccountData.contactNumber,
+        'Unknown',
+        validAccountData.pwd
+      ).subscribe();
+
+      const req = httpMock.expectOne(`${baseUrl}/api/v1/users`);
+      expect(req.request.body.gender).toBe('OTHER');
       req.flush({}, { status: 201, statusText: 'Created' });
       done();
     });
@@ -503,6 +644,26 @@ describe('UserService', () => {
       for (let i = 0; i < 3; i++) {
         const req = httpMock.expectOne(`${baseUrl}/api/v1/user/dashboard/test@example.com`);
         req.flush({ message: 'Internal server error' }, { status: 500, statusText: 'Server Error' });
+      }
+    });
+
+    it('should handle client-side ErrorEvent', (done) => {
+      const email = 'test@example.com';
+      const password = 'password123';
+
+      service.authenticate(email, password).subscribe({
+        error: (error) => {
+          expect(error.message).toContain('Error: Test client error');
+          done();
+        }
+      });
+
+      // Trigger client-side error with ErrorEvent
+      for (let i = 0; i < 3; i++) {
+        const req = httpMock.expectOne(`${baseUrl}/api/v1/user/auth`);
+        req.error(new ErrorEvent('Network error', {
+          message: 'Test client error'
+        }));
       }
     });
   });
