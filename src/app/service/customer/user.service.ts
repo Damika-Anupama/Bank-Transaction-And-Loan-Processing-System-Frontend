@@ -273,9 +273,19 @@ export class UserService {
   private handleError(error: HttpErrorResponse): Observable<never> {
     let errorMessage = 'An error occurred';
 
+    // Debug logging
+    console.error('Full error object:', error);
+    console.error('Error status:', error.status);
+    console.error('Error statusText:', error.statusText);
+    console.error('Error url:', error.url);
+    console.error('Error error:', error.error);
+
     if (error.error instanceof ErrorEvent) {
       // Client-side error
       errorMessage = `Error: ${error.error.message}`;
+    } else if (error.status === 0) {
+      // Status 0 means network error or CORS issue
+      errorMessage = 'Network error - Unable to reach server. Please check if the backend is running on http://localhost:3000';
     } else {
       // Server-side error
       errorMessage = error.error?.message || `Server returned code ${error.status}`;

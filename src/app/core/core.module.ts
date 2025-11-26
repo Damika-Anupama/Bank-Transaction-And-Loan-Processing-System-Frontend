@@ -7,7 +7,7 @@ import { ErrorInterceptor } from '../interceptors/error-interceptor.interceptor'
 import { LoadingInterceptorInterceptor } from '../interceptors/loading-interceptor.interceptor';
 import { TokenInterceptorService } from '../interceptors/token-interceptor-service.interceptor';
 import { LoggingInterceptorService } from '../interceptors/logging-interceptor-service.interceptor';
-import { CustomJsonInterceptor } from '../interceptors/custom-json-interceptor.interceptor';
+// import { CustomJsonInterceptor } from '../interceptors/custom-json-interceptor.interceptor'; // Removed - causing circular dependency
 
 // Guards
 import { DashboardGuard } from '../guard/dashboard.guard';
@@ -36,11 +36,6 @@ import { ThemeService } from '../service/theme.service';
     // HTTP Interceptors (order matters!)
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: ErrorInterceptor,
-      multi: true
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
       useClass: LoadingInterceptorInterceptor,
       multi: true
     },
@@ -56,9 +51,15 @@ import { ThemeService } from '../service/theme.service';
     },
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: CustomJsonInterceptor,
+      useClass: ErrorInterceptor,
       multi: true
     },
+    // CustomJsonInterceptor removed - was causing circular dependency
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: CustomJsonInterceptor,
+    //   multi: true
+    // },
     // Guards
     DashboardGuard,
     // Core Services
