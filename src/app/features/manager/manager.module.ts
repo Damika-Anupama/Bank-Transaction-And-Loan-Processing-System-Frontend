@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 // Routing
 import { ManagerRoutingModule } from './manager-routing.module';
@@ -37,6 +39,8 @@ import { ManagerHomeService } from '../../service/manager/manager.home.service';
     ManagerSettingsComponent
   ],
   imports: [
+    CommonModule,
+    FormsModule,
     SharedModule,
     HttpClientModule,
     ManagerRoutingModule

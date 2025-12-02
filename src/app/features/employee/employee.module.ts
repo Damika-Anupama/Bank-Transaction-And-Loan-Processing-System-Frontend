@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 // Routing
 import { EmployeeRoutingModule } from './employee-routing.module';
@@ -41,6 +43,8 @@ import { WithdrawalService } from '../../service/employee/withdrawal.service';
     EmployeeSettingsComponent
   ],
   imports: [
+    CommonModule,
+    FormsModule,
     SharedModule,
     HttpClientModule,
     EmployeeRoutingModule

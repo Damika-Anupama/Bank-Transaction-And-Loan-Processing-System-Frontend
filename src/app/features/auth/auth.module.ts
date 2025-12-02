@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 // Routing
 import { AuthRoutingModule } from './auth-routing.module';
@@ -32,6 +34,8 @@ import { UserService } from '../../service/customer/user.service';
     SignUpComponent
   ],
   imports: [
+    CommonModule,
+    FormsModule,
     SharedModule,
     HttpClientModule,
     AuthRoutingModule

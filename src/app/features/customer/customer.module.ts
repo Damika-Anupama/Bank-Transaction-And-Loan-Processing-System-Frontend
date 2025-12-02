@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 // Routing
 import { CustomerRoutingModule } from './customer-routing.module';
@@ -41,6 +43,8 @@ import { LoanService } from '../../service/customer/loan.service';
     SettingsComponent
   ],
   imports: [
+    CommonModule,
+    FormsModule,
     SharedModule,
     HttpClientModule,
     CustomerRoutingModule
