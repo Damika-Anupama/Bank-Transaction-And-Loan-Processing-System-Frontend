@@ -173,7 +173,7 @@ The system has **three user types** with different dashboards and permissions:
 
 #### 1. Customer Dashboard
 - **Email:** damikaanupama@gmail.com
-- **Password:** 1234
+- **Password:** Damika123
 
 **Features Available:**
 - View account balance and details
@@ -186,7 +186,7 @@ The system has **three user types** with different dashboards and permissions:
 
 #### 2. Employee Dashboard
 - **Email:** nimalnimal@gmail.com
-- **Password:** 4567
+- **Password:** Nimal123
 
 **Features Available:**
 - Register new customers
@@ -197,7 +197,7 @@ The system has **three user types** with different dashboards and permissions:
 
 #### 3. Manager Dashboard
 - **Email:** jkesoni@alexa.com
-- **Password:** Jewelle
+- **Password:** Jewelle123
 
 **Features Available:**
 - Approve or reject loan applications
