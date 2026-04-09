@@ -52,6 +52,7 @@ Backend code repository: https://github.com/Damika-Anupama/Bank-Transaction-And-
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
+    <li><a href="#deployment">Deployment</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -66,7 +67,7 @@ Backend code repository: https://github.com/Damika-Anupama/Bank-Transaction-And-
   <img src="src/assets/logo1.png" alt="Logo" width="400" height="350" style = "margin: 50px">
 </div>
 <br>
-This is the main group project given by the Computer Science Department, University of Moratuwa in the Semester 3 CS3043 - Database Systems Module. Here contains the Frontend of the Bank Transaction And Loan Processing System. If you want to go to the backend of this application, you can find it by following this <a href="https://github.com/CSE-Semester3-Group7-Project/Backend">link</a>.
+This is the main group project given by the Computer Science Department, University of Moratuwa in the Semester 3 CS3043 - Database Systems Module. Here contains the Frontend of the Bank Transaction And Loan Processing System. If you want to go to the backend of this application, you can find it by following this <a href="https://github.com/Damika-Anupama/Bank-Transaction-And-Loan-Processing-System-Backend">link</a>.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -74,21 +75,20 @@ This is the main group project given by the Computer Science Department, Univers
 ### Built With
 <br>
 
-- [![AngularCLI](https://img.shields.io/badge/AngularCLI-15-red.svg?logo=angular)](https://angular.io/)
-- [![TypeScript](https://img.shields.io/badge/TypeScript-3.9-blue.svg?logo=typescript)](https://www.typescriptlang.org/)
-- [![ECMAScript](https://img.shields.io/badge/ECMAScript-2020-yellow.svg?logo=javascript)](https://www.ecma-international.org/ecma-262/11.0/index.html)
-- [![jQuery](https://img.shields.io/badge/jQuery-3.6-green.svg?logo=jquery)](https://jquery.com/)
-- [![HTML5](https://img.shields.io/badge/HTML5-5.2-orange.svg?logo=html5)](https://www.w3.org/TR/html52/)
-- [![Sass](https://img.shields.io/badge/Sass-1.26-pink.svg?logo=sass)](https://sass-lang.com/)
+- [![AngularCLI](https://img.shields.io/badge/AngularCLI-21-red.svg?logo=angular)](https://angular.io/)
+- [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue.svg?logo=typescript)](https://www.typescriptlang.org/)
+- [![ECMAScript](https://img.shields.io/badge/ECMAScript-2022-yellow.svg?logo=javascript)](https://www.ecma-international.org/ecma-262/)
+- [![jQuery](https://img.shields.io/badge/jQuery-3.7-green.svg?logo=jquery)](https://jquery.com/)
+- [![HTML5](https://img.shields.io/badge/HTML5-5-orange.svg?logo=html5)](https://www.w3.org/TR/html52/)
+- [![Sass](https://img.shields.io/badge/Sass-1.x-pink.svg?logo=sass)](https://sass-lang.com/)
 - [![CSS3](https://img.shields.io/badge/CSS3-3.0-purple.svg?logo=css3)](https://www.w3.org/TR/css-2018/)
 - [![Bootstrap](https://img.shields.io/badge/Bootstrap-4.6-yellowgreen.svg?logo=bootstrap)](https://getbootstrap.com/)
-- [![AdminLTE3](https://img.shields.io/badge/AdminLTE3-3.0-lightgrey.svg?logo=adminlte&logoColor=white)](https://adminlte.io/)
-- [![Webpack](https://img.shields.io/badge/Webpack-5.5-blue.svg?logo=webpack)](https://webpack.js.org/)
-- [![Git](https://img.shields.io/badge/Git-2.28-lightblue.svg?logo=git)](https://git-scm.com/)
+- [![AdminLTE3](https://img.shields.io/badge/AdminLTE3-3.2-lightgrey.svg?logo=adminlte&logoColor=white)](https://adminlte.io/)
+- [![Webpack](https://img.shields.io/badge/Webpack-5.x-blue.svg?logo=webpack)](https://webpack.js.org/)
+- [![Git](https://img.shields.io/badge/Git-2.x-lightblue.svg?logo=git)](https://git-scm.com/)
 - [![JWT Tokens](https://img.shields.io/badge/JWT%20Tokens-0.2-lightpurple.svg?logo=jwt&logoColor=white)](https://jwt.io/)
-- [![Node](https://img.shields.io/badge/Node-14.12-lightgreen.svg?logo=node.js)](https://nodejs.org/)
-- [![npm](https://img.shields.io/badge/npm-7.0-lightred.svg?logo=npm)](https://www.npmjs.com/)
-- [![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-1.52-blue.svg?logo=visual-studio-code)](https://code.visualstudio.com/)
+- [![Node](https://img.shields.io/badge/Node-22.x-lightgreen.svg?logo=node.js)](https://nodejs.org/)
+- [![npm](https://img.shields.io/badge/npm-11.x-lightred.svg?logo=npm)](https://www.npmjs.com/)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -110,7 +110,7 @@ This is the main group project given by the Computer Science Department, Univers
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/CSE-Semester3-Group7-Project/Frontend.git
+   git clone https://github.com/Damika-Anupama/Bank-Transaction-And-Loan-Processing-System-Frontend.git
    ```
 2. Install NPM packages
    ```sh
@@ -127,7 +127,7 @@ This is the main group project given by the Computer Science Department, Univers
 ### Prerequisites
 
 Before running the frontend, ensure you have:
-1. **Node.js** (v14.x or higher) and **npm** installed
+1. **Node.js** (v22.x or higher) and **npm** installed
 2. **Backend server** running on `http://localhost:3000` (see Backend README)
 3. **MySQL database** with imported data (see Backend README for Docker setup)
 
@@ -139,8 +139,8 @@ npm install
 ```
 
 This will install all required packages including:
-- Angular 15
-- Bootstrap 5.2
+- Angular 21
+- Bootstrap 4.6
 - AdminLTE 3.2
 - Chart.js
 - ngx-toastr
@@ -285,6 +285,102 @@ Press `Ctrl+C` in the terminal to stop the development server.
 
 
 
+<!-- DEPLOYMENT -->
+## Deployment
+
+Deploy the complete stack using free cloud services:
+
+```
+Frontend (Angular)  → Vercel         (FREE Forever)
+Backend (Node.js)   → Render.com     (FREE with limitations)
+Database (MySQL)    → Aiven.io       (FREE Tier)
+Keep-Alive Service  → UptimeRobot    (FREE)
+```
+
+### Step 1: Deploy MySQL Database on Aiven.io
+
+1. Sign up at https://aiven.io/ and create a **MySQL** service
+2. Note the connection credentials (Host, Port, User, Password)
+3. Import the database dump:
+   ```bash
+   mysql -h mysql-xxxxx.aivencloud.com -P XXXXX -u avnadmin -p \
+         --ssl-mode=REQUIRED defaultdb < Backend/assets/Data/Dump20240216.sql
+   ```
+4. Verify — you should see 13 tables
+
+### Step 2: Deploy Backend to Render.com
+
+1. Sign up at https://render.com/ and create a **Web Service** from your backend repository
+2. Configure:
+   ```
+   Build Command:  npm install
+   Start Command:  npm start
+   Instance Type:  Free
+   ```
+3. Add environment variables:
+   ```env
+   API_PORT=3000
+   JWT_SECRET=this-is-the-group7-secret-key
+   DB_HOST=mysql-xxxxx.aivencloud.com
+   DB_USER=avnadmin
+   DB_PASSWORD=[your-aiven-password]
+   DB_NAME=defaultdb
+   DB_PORT=[your-aiven-port]
+   DB_SSL=true
+   FRONTEND_URL=http://localhost:4200
+   ```
+4. Deploy — your backend URL will be `https://bank-backend-api.onrender.com`
+
+> **Note:** Free tier spins down after 15 minutes of inactivity. First request takes 30–60 seconds.
+
+### Step 3: Deploy Frontend to Vercel
+
+1. Update the production API URL in `src/environments/environment.prod.ts`:
+   ```typescript
+   export const environment = {
+     production: true,
+     apiUrl: 'https://bank-backend-api.onrender.com/api/v1/'
+   };
+   ```
+2. Sign up at https://vercel.com/ and import your frontend repository
+3. Configure:
+   ```
+   Framework Preset:  Angular
+   Build Command:     ng build --configuration production
+   Output Directory:  dist/bank-transaction-and-loan-processing-system-frontend
+   ```
+4. Deploy — your frontend URL will be `https://bank-app-frontend.vercel.app`
+5. Go back to Render and update `FRONTEND_URL` to your Vercel URL, then redeploy
+
+### Step 4: Keep Backend Alive (Optional)
+
+Render free tier spins down after 15 minutes. Use UptimeRobot to prevent cold starts:
+
+1. Sign up at https://uptimerobot.com/
+2. Add an HTTP monitor pointing to `https://bank-backend-api.onrender.com/`
+3. Set interval to every 5 minutes
+
+### Test Credentials (Live Demo)
+
+| Role | Email | Password |
+|------|-------|----------|
+| Customer | damikaanupama@gmail.com | 1234 |
+| Employee | nimalnimal@gmail.com | 4567 |
+| Manager | jkesoni@alexa.com | Jewelle |
+
+### Troubleshooting
+
+| Issue | Fix |
+|-------|-----|
+| `connect ECONNREFUSED` | Check Aiven credentials and `DB_SSL=true` |
+| CORS errors | Verify `FRONTEND_URL` in Render matches your Vercel URL exactly |
+| `HttpErrorResponse 0` | Backend is sleeping — wait 30–60s and retry |
+| Login fails | Check Network tab; verify API URL in `environment.prod.ts` |
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
 <!-- CONTRIBUTING -->
 ## Contributing
 
@@ -316,8 +412,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
 * [Choose an Open Source License](https://choosealicense.com)
 * [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
 * [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
@@ -334,13 +428,13 @@ Use this space to list resources you find helpful and would like to give credit 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/CSE-Semester3-Group7-Project/Frontend.svg?style=for-the-badge
-[contributors-url]: https://github.com/CSE-Semester3-Group7-Project/Frontend/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/CSE-Semester3-Group7-Project/Frontend.svg?style=for-the-badge
-[forks-url]: https://github.com/CSE-Semester3-Group7-Project/Frontend/network/members
-[stars-shield]: https://img.shields.io/github/stars/CSE-Semester3-Group7-Project/Frontend.svg?style=for-the-badge
-[stars-url]: https://github.com/CSE-Semester3-Group7-Project/Frontend/stargazers
-[issues-shield]: https://img.shields.io/github/issues/CSE-Semester3-Group7-Project/Frontend.svg?style=for-the-badge
-[issues-url]: https://github.com/CSE-Semester3-Group7-Project/Frontend/issues
-[license-shield]: https://img.shields.io/github/license/CSE-Semester3-Group7-Project/Frontend.svg?style=for-the-badge
-[license-url]: https://github.com/CSE-Semester3-Group7-Project/Frontend/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/Damika-Anupama/Bank-Transaction-And-Loan-Processing-System-Frontend.svg?style=for-the-badge
+[contributors-url]: https://github.com/Damika-Anupama/Bank-Transaction-And-Loan-Processing-System-Frontend/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Damika-Anupama/Bank-Transaction-And-Loan-Processing-System-Frontend.svg?style=for-the-badge
+[forks-url]: https://github.com/Damika-Anupama/Bank-Transaction-And-Loan-Processing-System-Frontend/network/members
+[stars-shield]: https://img.shields.io/github/stars/Damika-Anupama/Bank-Transaction-And-Loan-Processing-System-Frontend.svg?style=for-the-badge
+[stars-url]: https://github.com/Damika-Anupama/Bank-Transaction-And-Loan-Processing-System-Frontend/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Damika-Anupama/Bank-Transaction-And-Loan-Processing-System-Frontend.svg?style=for-the-badge
+[issues-url]: https://github.com/Damika-Anupama/Bank-Transaction-And-Loan-Processing-System-Frontend/issues
+[license-shield]: https://img.shields.io/github/license/Damika-Anupama/Bank-Transaction-And-Loan-Processing-System-Frontend.svg?style=for-the-badge
+[license-url]: https://github.com/Damika-Anupama/Bank-Transaction-And-Loan-Processing-System-Frontend/LICENSE
