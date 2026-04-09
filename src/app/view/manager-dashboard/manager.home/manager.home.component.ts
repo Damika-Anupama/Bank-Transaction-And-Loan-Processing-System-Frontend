@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { ManagerHomeService } from 'src/app/service/manager/manager.home.service';
 @Component({
   selector: 'app-manager.home',
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './manager.home.component.html',
   styleUrls: ['./manager.home.component.scss'],
 })

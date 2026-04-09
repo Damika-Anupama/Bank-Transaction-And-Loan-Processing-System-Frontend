@@ -1,9 +1,14 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { RegisterCustomerService } from 'src/app/service/employee/register.customer.service';
 import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-employee.register.customer',
+  standalone: true,
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './employee.register.customer.component.html',
   styleUrls: ['./employee.register.customer.component.scss']
 })

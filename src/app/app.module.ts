@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgChartsModule } from 'ng2-charts';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { httpInterceptorProvider } from './interceptors/interceptor-barrel';
@@ -47,23 +48,14 @@ import { EmployeeSettingsComponent } from './view/employee-dashboard/employee.se
     TransactionComponent,
     FilterPipe,
     EmployeeDashboardComponent,
-    ManagerDashboardComponent,
-    ManagerLoanApprovalComponent,
-    ManagerAddEmployeeComponent,
-    ManagerHomeComponent,
-    EmployeeHomeComponent,
-    EmployeeCreateLoanComponent,
-    EmployeeRegisterCustomerComponent,
-    EmployeeWithdrawalComponent,
-    SettingsComponent,
-    ManagerSettingsComponent,
-    EmployeeSettingsComponent
+    ManagerDashboardComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
+    RouterModule,
     AppRoutingModule,
     FontAwesomeModule,
-    NgChartsModule,
     FormsModule,
     HttpClientModule
   ],

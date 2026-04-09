@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee.dashboard',
+  standalone: false,
   templateUrl: './employee.dashboard.component.html',
   styleUrls: ['./employee.dashboard.component.scss']
 })

@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-loan',
+  standalone: false,
   templateUrl: './loan.component.html',
   styleUrls: ['./loan.component.scss'],
 })

@@ -5,6 +5,7 @@ import { TransactionService } from 'src/app/service/customer/transaction.service
 
 @Component({
   selector: 'app-transaction',
+  standalone: false,
   templateUrl: './transaction.component.html',
   styleUrls: ['./transaction.component.scss']
 })
