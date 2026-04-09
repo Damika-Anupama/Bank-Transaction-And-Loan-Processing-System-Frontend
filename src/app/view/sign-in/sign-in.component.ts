@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-sign-in',
+  standalone: false,
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss'],
 })

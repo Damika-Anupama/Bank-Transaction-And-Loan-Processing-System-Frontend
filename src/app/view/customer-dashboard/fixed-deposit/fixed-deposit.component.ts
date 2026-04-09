@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-fixed-deposit',
+  standalone: false,
   templateUrl: './fixed-deposit.component.html',
   styleUrls: ['./fixed-deposit.component.scss'],
 })

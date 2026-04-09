@@ -5,6 +5,8 @@ import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-manager.add.employee',
+  standalone: true,
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './manager.add.employee.component.html',
   styleUrls: ['./manager.add.employee.component.scss'],
 })

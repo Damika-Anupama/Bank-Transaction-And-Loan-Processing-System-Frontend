@@ -51,6 +51,7 @@ Backend code repository: https://github.com/Damika-Anupama/Bank-Transaction-And-
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
+    <li><a href="#deployment">Deployment</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -122,7 +123,7 @@ This is a comprehensive banking management system featuring transaction processi
 ### Prerequisites
 
 Before running the frontend, ensure you have:
-1. **Node.js** (v14.x or higher) and **npm** installed
+1. **Node.js** (v22.x or higher) and **npm** installed
 2. **Backend server** running on `http://localhost:3000` (see Backend README)
 3. **MySQL database** with imported data (see Backend README for Docker setup)
 
@@ -134,9 +135,9 @@ npm install
 ```
 
 This will install all required packages including:
-- Angular 15
-- Bootstrap 5.2
-- TailwindCSS 3.4
+- Angular 21
+- Bootstrap 4.6
+- AdminLTE 3.2
 - Chart.js
 - ngx-toastr
 - and other dependencies
@@ -280,6 +281,102 @@ Press `Ctrl+C` in the terminal to stop the development server.
 
 
 
+<!-- DEPLOYMENT -->
+## Deployment
+
+Deploy the complete stack using free cloud services:
+
+```
+Frontend (Angular)  → Vercel         (FREE Forever)
+Backend (Node.js)   → Render.com     (FREE with limitations)
+Database (MySQL)    → Aiven.io       (FREE Tier)
+Keep-Alive Service  → UptimeRobot    (FREE)
+```
+
+### Step 1: Deploy MySQL Database on Aiven.io
+
+1. Sign up at https://aiven.io/ and create a **MySQL** service
+2. Note the connection credentials (Host, Port, User, Password)
+3. Import the database dump:
+   ```bash
+   mysql -h mysql-xxxxx.aivencloud.com -P XXXXX -u avnadmin -p \
+         --ssl-mode=REQUIRED defaultdb < Backend/assets/Data/Dump20240216.sql
+   ```
+4. Verify — you should see 13 tables
+
+### Step 2: Deploy Backend to Render.com
+
+1. Sign up at https://render.com/ and create a **Web Service** from your backend repository
+2. Configure:
+   ```
+   Build Command:  npm install
+   Start Command:  npm start
+   Instance Type:  Free
+   ```
+3. Add environment variables:
+   ```env
+   API_PORT=3000
+   JWT_SECRET=this-is-the-group7-secret-key
+   DB_HOST=mysql-xxxxx.aivencloud.com
+   DB_USER=avnadmin
+   DB_PASSWORD=[your-aiven-password]
+   DB_NAME=defaultdb
+   DB_PORT=[your-aiven-port]
+   DB_SSL=true
+   FRONTEND_URL=http://localhost:4200
+   ```
+4. Deploy — your backend URL will be `https://bank-backend-api.onrender.com`
+
+> **Note:** Free tier spins down after 15 minutes of inactivity. First request takes 30–60 seconds.
+
+### Step 3: Deploy Frontend to Vercel
+
+1. Update the production API URL in `src/environments/environment.prod.ts`:
+   ```typescript
+   export const environment = {
+     production: true,
+     apiUrl: 'https://bank-backend-api.onrender.com/api/v1/'
+   };
+   ```
+2. Sign up at https://vercel.com/ and import your frontend repository
+3. Configure:
+   ```
+   Framework Preset:  Angular
+   Build Command:     ng build --configuration production
+   Output Directory:  dist/bank-transaction-and-loan-processing-system-frontend
+   ```
+4. Deploy — your frontend URL will be `https://bank-app-frontend.vercel.app`
+5. Go back to Render and update `FRONTEND_URL` to your Vercel URL, then redeploy
+
+### Step 4: Keep Backend Alive (Optional)
+
+Render free tier spins down after 15 minutes. Use UptimeRobot to prevent cold starts:
+
+1. Sign up at https://uptimerobot.com/
+2. Add an HTTP monitor pointing to `https://bank-backend-api.onrender.com/`
+3. Set interval to every 5 minutes
+
+### Test Credentials (Live Demo)
+
+| Role | Email | Password |
+|------|-------|----------|
+| Customer | damikaanupama@gmail.com | 1234 |
+| Employee | nimalnimal@gmail.com | 4567 |
+| Manager | jkesoni@alexa.com | Jewelle |
+
+### Troubleshooting
+
+| Issue | Fix |
+|-------|-----|
+| `connect ECONNREFUSED` | Check Aiven credentials and `DB_SSL=true` |
+| CORS errors | Verify `FRONTEND_URL` in Render matches your Vercel URL exactly |
+| `HttpErrorResponse 0` | Backend is sleeping — wait 30–60s and retry |
+| Login fails | Check Network tab; verify API URL in `environment.prod.ts` |
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
 <!-- CONTRIBUTING -->
 ## Contributing
 
@@ -310,8 +407,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
 
 * [Choose an Open Source License](https://choosealicense.com)
 * [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)

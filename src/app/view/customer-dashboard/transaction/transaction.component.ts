@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-transaction',
+  standalone: false,
   templateUrl: './transaction.component.html',
   styleUrls: ['./transaction.component.scss']
 })

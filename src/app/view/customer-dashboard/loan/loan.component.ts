@@ -7,6 +7,7 @@ import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-loan',
+  standalone: false,
   templateUrl: './loan.component.html',
   styleUrls: ['./loan.component.scss'],
 })
