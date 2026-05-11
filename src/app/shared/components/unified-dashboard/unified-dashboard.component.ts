@@ -6,6 +6,7 @@ import { DashboardConfig, NavigationItem } from '../../models/navigation-config.
 
 @Component({
   selector: 'app-unified-dashboard',
+  standalone: false,
   templateUrl: './unified-dashboard.component.html',
   styleUrls: ['./unified-dashboard.component.scss']
 })

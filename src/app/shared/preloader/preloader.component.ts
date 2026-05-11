@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-preloader',
+  standalone: false,
   templateUrl: './preloader.component.html',
   styleUrls: ['./preloader.component.scss']
 })

@@ -5,8 +5,7 @@ import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-employee.settings',
-  standalone: true,
-  imports: [CommonModule, RouterModule],
+  standalone: false,
   templateUrl: './employee.settings.component.html',
   styleUrls: ['./employee.settings.component.scss']
 })

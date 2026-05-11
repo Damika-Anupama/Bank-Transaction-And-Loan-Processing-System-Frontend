@@ -5,8 +5,7 @@ import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-employee.register.customer',
-  standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  standalone: false,
   templateUrl: './employee.register.customer.component.html',
   styleUrls: ['./employee.register.customer.component.scss']
 })

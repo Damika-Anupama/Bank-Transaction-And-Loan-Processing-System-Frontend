@@ -32,10 +32,9 @@
             "styles": [
               "src/styles.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/sweetalert2/src/sweetalert2.scss",
-              "node_modules/bs-stepper/dist/css/bs-stepper.min.css",
               "node_modules/sweetalert2/dist/sweetalert2.min.css",
               "node_modules/@sweetalert2/theme-bootstrap-4/bootstrap-4.min.css",
+              "node_modules/bs-stepper/dist/css/bs-stepper.min.css",
               "node_modules/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css",
               "node_modules/icheck-bootstrap/icheck-bootstrap.min.css",
               "node_modules/jqvmap/dist/jqvmap.min.css",
@@ -44,7 +43,6 @@
               "node_modules/select2/dist/css/select2.min.css",
               "node_modules/select2-bootstrap4-theme/dist/select2-bootstrap4.min.css",
               "node_modules/bootstrap4-duallistbox/dist/bootstrap-duallistbox.min.css",
-              "node_modules/bs-stepper/dist/css/bs-stepper.min.css",
               "node_modules/dropzone/dist/dropzone.css",
               "node_modules/toastr/build/toastr.min.css",
               "node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css",
@@ -80,9 +78,7 @@
               "node_modules/bs-stepper/dist/js/bs-stepper.min.js",
               "node_modules/admin-lte/dist/js/adminlte.js",
               "node_modules/admin-lte/dist/js/demo.js",
-              "node_modules/admin-lte/dist/js/pages/dashboard.js",
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-              "node_modules/bs-stepper/dist/js/bs-stepper.min.js"
+              "node_modules/admin-lte/dist/js/pages/dashboard.js"
             ],
             "allowedCommonJsDependencies": [
               "bootstrap/dist/js/bootstrap.bundle.min.js",

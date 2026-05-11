@@ -5,8 +5,7 @@ import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-manager.loan.approval',
-  standalone: true,
-  imports: [CommonModule, RouterModule],
+  standalone: false,
   templateUrl: './manager.loan.approval.component.html',
   styleUrls: ['./manager.loan.approval.component.scss']
 })

@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 
 /**
  * NOTE: This component requires full implementation.
@@ -23,8 +20,7 @@ import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-employee.withdrawal',
-  standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  standalone: false,
   templateUrl: './employee.withdrawal.component.html',
   styleUrls: ['./employee.withdrawal.component.scss']
 })
